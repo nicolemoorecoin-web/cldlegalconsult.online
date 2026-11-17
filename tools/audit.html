@@ -23,6 +23,7 @@
        · form controls with no associated label
        · links and buttons with no accessible name
        · the number of <h1> elements per page
+       · any uncaught JavaScript error raised while the page ran
 
      Open it directly (file:// works if the browser allows local file
      access) or through the dev server:
@@ -34,7 +35,7 @@
                'locations.html', 'careers.html', 'about.html', 'contact.html'];
 
   var L = [];
-  var total = { dupIds: 0, noAlt: 0, noLabel: 0, emptyLink: 0, noBtnName: 0, h1: 0 };
+  var total = { dupIds: 0, noAlt: 0, noLabel: 0, emptyLink: 0, noBtnName: 0, h1: 0, jsErrors: 0 };
   var i = 0;
 
   function audit(d, name) {
@@ -99,13 +100,14 @@
 
   function next() {
     if (i >= PAGES.length) {
-      var clean = total.dupIds + total.noAlt + total.noLabel + total.emptyLink + total.noBtnName === 0;
+      var clean = total.dupIds + total.noAlt + total.noLabel + total.emptyLink + total.noBtnName + total.jsErrors === 0;
       L.push('');
       L.push('TOTALS  duplicateIds=' + total.dupIds +
              '  missingAlt=' + total.noAlt +
              '  unlabelledFields=' + total.noLabel +
              '  namelessLinks=' + total.emptyLink +
              '  namelessButtons=' + total.noBtnName +
+             '  jsErrors=' + total.jsErrors +
              '  h1count=' + total.h1);
       L.push('');
       L.push(clean ? 'RESULT: PASS — no issues found.' : 'RESULT: FAIL — see the issues above.');
@@ -118,6 +120,7 @@
     var f = document.createElement('iframe');
     f.src = '../' + name;
     f.width = 1440;
+    var jsErrors = [];
     f.onload = function () {
       setTimeout(function () {
         try {
@@ -125,12 +128,23 @@
         } catch (e) {
           L.push('== ' + name + ' == ERR ' + e.message);
         }
+        if (jsErrors.length) {
+          L.push('   JS ERROR: ' + jsErrors.join(' | '));
+          total.jsErrors += jsErrors.length;
+        }
         host.removeChild(f);
         i++;
         next();
       }, 500);
     };
     host.appendChild(f);
+    // contentWindow exists as soon as the frame is in the DOM and survives the
+    // navigation, so binding here catches errors raised during page load.
+    try {
+      f.contentWindow.addEventListener('error', function (ev) {
+        jsErrors.push(ev.message + ' @ ' + (ev.filename || '?') + ':' + ev.lineno);
+      });
+    } catch (e) { /* cross-origin; not expected for same-origin pages */ }
   }
 
   next();

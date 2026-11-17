@@ -1,9 +1,11 @@
-# White & Case — academic front-end replica
+# CLD Legal Consultant
 
-A recreation of the public website of **White & Case LLP** (`whitecase.com`), built as a
-final-year computer science project. The brief was to reproduce the site's front-end
-architecture and visual system. **There is no database and no back end** — every list on the
-site is a static JavaScript array that the browser filters over in real time.
+A corporate and commercial law consultancy website, built as a final-year computer science
+project. Eight pages, a full front-end architecture, and **no database and no back end** —
+every list on the site is a static JavaScript array that the browser filters over in real
+time.
+
+Live domain: **cldlegalconsult.online**
 
 ---
 
@@ -12,8 +14,8 @@ site is a static JavaScript array that the browser filters over in real time.
 The site is plain static files. **Open `index.html` and it works** — there is nothing to
 install and no build step required to view it.
 
-For a proper HTTP origin (recommended — some browser APIs such as the clipboard need a secure
-context, and the browser treats each `file://` page as a separate origin):
+For a proper HTTP origin (recommended — some browser APIs such as the clipboard need a
+secure context, and the browser treats each `file://` page as a separate origin):
 
 ```bash
 npm run serve        # → http://localhost:8080
@@ -25,29 +27,37 @@ No dependencies are required. Node is used only for the optional build step and 
 
 ## What's in it
 
-Eight pages, matching the original's information architecture:
-
 | Page | File | What it demonstrates |
 |---|---|---|
 | Home | `index.html` | Hero, stat band, split feature sections, card grids, CTA band |
 | Services | `services.html` | Tabbed Industries / Practices / Regions, FAQ accordion |
-| People | `people.html` | Live multi-field search over 27 lawyers, live result count |
+| People | `people.html` | Collapsible "Find a lawyer" search, and a full practitioner profile |
 | Insights | `insights.html` | Filterable content list with URL-synced state, newsletter form |
 | Offices | `locations.html` | 45 offices, region filter, address cards |
 | Careers | `careers.html` | History timeline, values grid, application form |
-| About | `about.html` | Editorial blocks, awards tiles, legal notices |
+| About | `about.html` | Editorial blocks, awards tiles, innovation section |
 | Contact | `contact.html` | Validated enquiry form, sidebar with office details |
+
+### The principal
+
+The directory holds a single practitioner — **Jeff Hughes, Principal Consultant** — whose
+profile on `people.html` carries a biography, focus areas, eight matters handled, the
+matter currently live, education, admissions, recognition, publications, speaking
+commitments and memberships.
+
+The site's firm-level figures (2,000+ lawyers across 45 offices in 31 countries) describe
+the **network** the practice draws on, not its headcount.
 
 ### Interactions built from scratch
 
 - **Mega menu** — full-width panel on hover *and* keyboard focus, with `aria-expanded` /
   `aria-controls` wiring and a focus trap. Collapses to an off-canvas drawer with
   accordions on small screens.
+- **Find a lawyer** — a search panel that opens on demand (or automatically when you arrive
+  from the homepage's "Find a lawyer" link) and filters the directory as you type.
 - **Search dialog** — modal with focus trap, Escape to close, and query routing.
 - **Cookie consent** — banner plus a preference centre with three cookie categories,
   persisted in `localStorage`.
-- **Live filtering** — the people directory and insights list filter as you type, with the
-  result count updating and an empty state.
 - **URL state** — `insights.html?type=alerts` and `locations.html?region=emea` are honoured
   on load and stay shareable as you filter.
 - **Form validation** — required fields, email format, inline error messages, `aria-invalid`,
@@ -63,16 +73,18 @@ Eight pages, matching the original's information architecture:
 lawfirm-replica/
 ├── index.html … contact.html   ← the built site (open these)
 ├── assets/
-│   ├── css/styles.css          ← one stylesheet, 20 numbered sections
-│   ├── js/data.js              ← ALL content: nav, offices, lawyers, insights
-│   ├── js/main.js              ← all behaviour, 12 independent modules
-│   └── img/*.svg               ← abstract placeholder artwork
+│   ├── css/styles.css          ← one stylesheet, 21 numbered sections
+│   ├── js/data.js              ← ALL content: nav, offices, directory, insights
+│   ├── js/main.js              ← all behaviour, independent modules
+│   └── img/photos/*.jpg        ← photography (see CREDITS.md)
 ├── src/
 │   ├── partials/               ← head, header, footer, cookie banner, dialogs
 │   └── pages/                  ← page templates
 ├── tools/
 │   ├── build.js                ← assembles pages + partials, checks links
-│   └── serve.js                ← 40-line static server
+│   ├── serve.js                ← 40-line static server
+│   └── audit.html              ← self-contained a11y + JS-error check
+├── CREDITS.md                  ← photo attribution and typefaces
 └── package.json
 ```
 
@@ -106,9 +118,6 @@ adding an office updates the header, the footer and the offices page in one edit
 
 ## Design system
 
-The colour and spacing tokens were extracted from the live site's compiled stylesheet
-(`whitecase.com`, November 2026) rather than guessed:
-
 | Token | Value | Use |
 |---|---|---|
 | `--ink` | `#1b1b1b` | Near-black — body text, dark sections |
@@ -118,12 +127,22 @@ The colour and spacing tokens were extracted from the live site's compiled style
 | `--line` | `#dadada` | Borders, rules |
 | `--wash` | `#f4f4f4` | Tinted section backgrounds |
 
-Layout metrics from the original: a 100px header, 60px between blocks, a 335px mega-menu
-lead column and 960px measure for body copy. Type is Inter (UI) and Source Serif 4 (editorial),
-standing in for the site's proprietary Univers and WCSerifHeadline.
+The colour and spacing tokens were derived from the compiled theme stylesheet of a large
+international law firm's public site, along with its layout metrics: a 100px header, 60px
+between blocks, a 335px mega-menu lead column and a 960px measure for body copy. Type is
+Inter (UI) and Source Serif 4 (editorial), both open-licensed.
 
 Everything is fluid: `clamp()` for type scale, `grid` for layout, and breakpoints at 1200px,
 1024px and 720px. **Verified free of horizontal overflow at 390, 500, 768, 1024 and 1440px.**
+
+---
+
+## Photography
+
+Every photograph lives in `assets/img/photos/` and is used under the Pexels licence.
+Photographers are credited in [CREDITS.md](CREDITS.md). To swap an image, replace the file
+and keep the name — the CSS handles `object-fit: cover` and the correct aspect ratios, so
+no markup changes are needed.
 
 ---
 
@@ -140,9 +159,16 @@ Built in from the start rather than added afterwards:
   with `aria-pressed` / `aria-selected`.
 - `prefers-reduced-motion` disables all animation.
 
-An automated audit over all eight pages reports **0 duplicate IDs, 0 images missing `alt`,
-0 unlabelled fields, 0 links or buttons without an accessible name, and exactly one `<h1>`
-per page**.
+`tools/audit.html` loads every built page and reports duplicate IDs, missing `alt`
+attributes, unlabelled fields, unnamed links and buttons, the `<h1>` count, and any
+uncaught JavaScript error:
+
+```
+TOTALS  duplicateIds=0  missingAlt=0  unlabelledFields=0
+        namelessLinks=0  namelessButtons=0  jsErrors=0  h1count=8
+
+RESULT: PASS — no issues found.
+```
 
 ---
 
@@ -162,13 +188,9 @@ var rows = await fetch('/api/lawyers?q=' + q).then(function (r) { return r.json(
 The rendering code below it does not change, because it already works on a plain array of
 objects. The same applies to the insights list and the offices grid.
 
----
-
-## Swapping the placeholder artwork
-
-`assets/img/*.svg` are abstract SVG compositions generated for this project. To use
-photography instead, replace the `<img>` in `src/pages/` and rebuild — the CSS already
-handles `object-fit: cover` and the correct aspect ratios.
+The biography is a deliberate exception: it lives only in the page markup, and the search
+reads the text straight off the rendered profile — so the biography exists in exactly one
+place.
 
 ---
 
@@ -182,28 +204,10 @@ polyfill layer and no transpilation step, because there is nothing to transpile.
 
 ## A note on the content
 
-This is a **student reconstruction of a public website for academic study**. It is not
-affiliated with, endorsed by, or operated by White & Case LLP.
-
-Deliberately **not** reproduced: the original logo artwork, brand assets, photography and
-editorial copy. The wordmark is set in plain HTML text, all images are original abstract
-SVG compositions, and every lawyer name, email address and body paragraph is a fictional
-placeholder. The office names, addresses and the site's information architecture are
-reproduced because they are the subject of the study.
-
-The footer carries this notice on every page. **If you publish this project anywhere, keep
-that notice** — an academic reconstruction of a commercial site should stay clearly
-labelled as one, and the fictional content should stay fictional.
+This is a **student project**. CLD Legal Consultant is a fictional practice: every name,
+address, telephone number, matter, award and body of copy is illustrative. Jeff Hughes does
+not exist, and the office directory describes real business districts rather than real
+firms. The stock portrait standing in for him does not depict a real person.
 
 Figures quoted on the site (45 offices, 31 countries, 2,000+ lawyers) are kept internally
-consistent with the data in `assets/js/data.js` — note that the live site quotes 43 offices
-while listing 45 locations, so the replica follows its own data rather than copying that
-inconsistency.
-
----
-
-## Credits
-
-Original site: [whitecase.com](https://www.whitecase.com/) — © White & Case LLP.
-Typefaces: Inter and Source Serif 4, both open-licensed.
-No frameworks, no dependencies, no build tooling beyond Node's standard library.
+consistent with the data in `assets/js/data.js`.

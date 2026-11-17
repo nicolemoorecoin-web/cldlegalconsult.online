@@ -346,50 +346,65 @@
     var search = $('#people-search');
     var practice = $('#people-practice');
     var office = $('#people-office');
-    var industry = $('#people-industry');
     var countEl = $('#people-count');
     var reset = $('#people-reset');
+    var lawyers = DATA.lawyers;
+    // The biography is read from the page itself, so the profile exists in
+    // exactly one place — the markup a reader actually sees.
+    var profileEl = $('#jeff-hughes');
 
     // Populate the selects from the data so the options can never drift.
     function fill(select, values) {
       if (!select) return;
-      values.sort().forEach(function (v) {
-        var opt = document.createElement('option');
-        opt.value = v;
-        opt.textContent = v;
-        select.appendChild(opt);
-      });
+      values
+        .filter(function (v, i, a) { return a.indexOf(v) === i; })
+        .sort()
+        .forEach(function (v) {
+          var opt = document.createElement('option');
+          opt.value = v;
+          opt.textContent = v;
+          select.appendChild(opt);
+        });
     }
-    var lawyers = DATA.lawyers;
-    fill(practice, lawyers.map(function (l) { return l.practice; }).filter(function (v, i, a) { return a.indexOf(v) === i; }));
-    fill(industry, lawyers.map(function (l) { return l.industry; }).filter(function (v, i, a) { return a.indexOf(v) === i; }));
-    fill(office, lawyers.map(function (l) { return l.office; }).filter(function (v, i, a) { return a.indexOf(v) === i; }));
+    fill(practice, lawyers.map(function (l) { return l.practice; }));
+    fill(office, lawyers.map(function (l) { return l.office; }));
+
+    // The searchable text includes the full profile as it appears on the
+    // page, so a search for a matter, a sector or a language surfaces the
+    // right person without the biography being stored twice.
+    function haystack(l) {
+      var bits = [l.name, l.title, l.practice, l.industry, l.office, l.focus, l.languages];
+      if (profileEl) bits.push(profileEl.textContent);
+      return bits.join(' ').toLowerCase();
+    }
+
+    function anchor(name) {
+      return '#' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    }
 
     function render() {
       var q = ((search && search.value) || '').trim().toLowerCase();
       var p = (practice && practice.value) || '';
       var o = (office && office.value) || '';
-      var i = (industry && industry.value) || '';
 
       var rows = lawyers.filter(function (l) {
         if (p && l.practice !== p) return false;
         if (o && l.office !== o) return false;
-        if (i && l.industry !== i) return false;
         if (!q) return true;
-        return [l.name, l.title, l.practice, l.industry, l.office, l.focus, l.languages]
-          .join(' ')
-          .toLowerCase()
-          .indexOf(q) !== -1;
+        return haystack(l).indexOf(q) !== -1;
       });
 
       if (countEl) {
-        countEl.textContent = rows.length === 1
-          ? '1 lawyer found'
-          : rows.length + ' lawyers found';
+        countEl.textContent = rows.length
+          ? rows.length + (rows.length === 1 ? ' profile matches' : ' profiles match') + ' your search'
+          : 'No matching lawyer';
       }
 
       if (!rows.length) {
-        container.innerHTML = '<p class="empty">No lawyers match that search. Try a broader term, or <a href="contact.html">contact the firm</a> directly.</p>';
+        container.innerHTML =
+          '<p class="empty">Nothing in the searchable directory matches that. Try a different name, ' +
+          'practice or office — or <a href="contact.html">contact us</a> and we will introduce you to ' +
+          'someone in our wider network.</p>';
         return;
       }
 
@@ -398,7 +413,7 @@
           '<article class="person reveal is-visible">' +
             '<div class="person__avatar" aria-hidden="true">' + esc(initials(l.name)) + '</div>' +
             '<div class="person__body">' +
-              '<h3 class="person__name"><a href="contact.html">' + esc(l.name) + '</a></h3>' +
+              '<h3 class="person__name"><a href="' + anchor(l.name) + '">' + esc(l.name) + '</a></h3>' +
               '<p class="person__role">' + esc(l.title) + ' — ' + esc(l.focus) + '</p>' +
               '<div class="person__meta">' +
                 '<span>' + esc(l.practice) + '</span>' +
@@ -411,7 +426,7 @@
       }).join('');
     }
 
-    [search, practice, office, industry].forEach(function (el) {
+    [search, practice, office].forEach(function (el) {
       if (!el) return;
       el.addEventListener('input', render);
       el.addEventListener('change', render);
@@ -421,11 +436,36 @@
         if (search) search.value = '';
         if (practice) practice.value = '';
         if (office) office.value = '';
-        if (industry) industry.value = '';
         render();
       });
     }
     render();
+  }
+
+  /* ----------------------------------------------------------------
+     07b  The "Find a lawyer" panel
+     ---------------------------------------------------------------- */
+  function initFindPanel() {
+    var btn = $('#find-btn');
+    var panel = $('#find-panel');
+    if (!btn || !panel) return;
+
+    function setOpen(state) {
+      panel.classList.toggle('is-open', state);
+      btn.setAttribute('aria-expanded', String(state));
+      btn.textContent = state ? 'Close search' : 'Open search';
+      if (state) {
+        var input = $('input', panel);
+        if (input) setTimeout(function () { input.focus(); }, 60);
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(!panel.classList.contains('is-open'));
+    });
+
+    // Arriving from the homepage's "Find a lawyer" link opens the panel.
+    if (window.location.hash === '#find') setOpen(true);
   }
 
   /* ----------------------------------------------------------------
@@ -716,14 +756,6 @@
     });
   }
 
-  function initPlaceholders() {
-    $$('[data-video-placeholder]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        toast('Video placeholder — the original site hosts this film on Vimeo.');
-      });
-    });
-  }
-
   /* ----------------------------------------------------------------
      Boot
      ---------------------------------------------------------------- */
@@ -733,6 +765,7 @@
     initDrawer();
     initSearch();
     initCookies();
+    initFindPanel();
     initPeople();
     initInsights();
     initOffices();
@@ -742,7 +775,6 @@
     initReveal();
     initToTop();
     initCopyLink();
-    initPlaceholders();
   }
 
   if (document.readyState === 'loading') {

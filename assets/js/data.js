@@ -14,7 +14,7 @@
       label: 'People',
       href: 'people.html',
       lead: 'Our lawyers are recognised for their legal innovation and outstanding service to clients worldwide.',
-      cta: { label: 'Find a lawyer', href: 'people.html' },
+      cta: { label: 'Find a lawyer', href: 'people.html#find' },
       featured: {
         kicker: 'Featured content',
         items: [
@@ -269,17 +269,17 @@
 
   /* --- Offices ---------------------------------------------------- */
   var OFFICES = [
-    { region: 'americas', city: 'Boston', address: '100 Boylston Street', postal: 'Boston, MA 02116', phone: '+1 617 555 0142' },
     { region: 'americas', city: 'Chicago', address: '155 North Wacker Drive', postal: 'Chicago, IL 60606', phone: '+1 312 555 0187' },
+    { region: 'americas', city: 'Glendale, Arizona', address: '2010 West Camelback Road, Suite 300', postal: 'Glendale, AZ 85301', phone: '+1 623 555 0176' },
     { region: 'americas', city: 'Houston', address: '1100 Louisiana Street', postal: 'Houston, TX 77002', phone: '+1 713 555 0163' },
     { region: 'americas', city: 'Los Angeles', address: '633 West 5th Street', postal: 'Los Angeles, CA 90071', phone: '+1 213 555 0119' },
     { region: 'americas', city: 'Mexico City', address: 'Paseo de la Reforma 250', postal: 'Ciudad de México 06600', phone: '+52 55 5550 0174' },
     { region: 'americas', city: 'Miami', address: '200 South Biscayne Boulevard', postal: 'Miami, FL 33131', phone: '+1 305 555 0155' },
     { region: 'americas', city: 'New York', address: '1155 Avenue of the Americas', postal: 'New York, NY 10036', phone: '+1 212 555 0100' },
     { region: 'americas', city: 'São Paulo', address: 'Av. Brigadeiro Faria Lima 3477', postal: 'São Paulo 04538-133', phone: '+55 11 5550 0198' },
+    { region: 'americas', city: 'Seattle', address: '1201 Third Avenue, Suite 2200', postal: 'Seattle, WA 98101', phone: '+1 206 555 0142' },
     { region: 'americas', city: 'Silicon Valley', address: '2600 Gateway Boulevard', postal: 'Santa Clara, CA 95054', phone: '+1 650 555 0128' },
     { region: 'americas', city: 'Tampa Global Operations Center', address: 'One Tampa City Center', postal: 'Tampa, FL 33602', phone: '+1 813 555 0171' },
-    { region: 'americas', city: 'Washington, DC', address: '701 Pennsylvania Avenue NW', postal: 'Washington, DC 20004', phone: '+1 202 555 0136' },
 
     { region: 'emea', city: 'Abu Dhabi', address: 'Al Danah District, Tower 2', postal: 'Abu Dhabi, UAE', phone: '+971 2 555 0181' },
     { region: 'emea', city: 'Astana', address: '16/7 Altyn Ran Towers', postal: 'Astana 020000, Kazakhstan', phone: '+7 7172 555 014' },
@@ -318,36 +318,23 @@
     { region: 'asia-pacific', city: 'Tokyo', address: 'Marunouchi Trust Tower North', postal: 'Tokyo 100-0005, Japan', phone: '+81 3 5550 1133' }
   ];
 
-  /* --- Lawyers (all names fictional) ------------------------------ */
+  /* --- Lawyers ----------------------------------------------------
+     The searchable directory holds a single principal. The firm-level
+     lawyer count shown across the site is a separate, static figure. */
   var LAWYERS = [
-    { name: 'Amara Osei', title: 'Partner', practice: 'Corporate', industry: 'Technology', office: 'New York', focus: 'Mergers & Acquisitions', languages: 'English, French', email: 'a.osei@example.com' },
-    { name: 'Daniel Reyes', title: 'Partner', practice: 'Finance', industry: 'Private Capital', office: 'London', focus: 'Banking & Finance', languages: 'English, Spanish', email: 'd.reyes@example.com' },
-    { name: 'Ingrid Halvorsen', title: 'Partner', practice: 'Dispute Resolution', industry: 'Energy', office: 'Oslo', focus: 'International Arbitration', languages: 'Norwegian, English', email: 'i.halvorsen@example.com' },
-    { name: 'Marcus Whitfield', title: 'Partner', practice: 'Corporate', industry: 'Infrastructure', office: 'Washington, DC', focus: 'Project Finance', languages: 'English', email: 'm.whitfield@example.com' },
-    { name: 'Sofia Almeida', title: 'Counsel', practice: 'Tax', industry: 'Technology', office: 'São Paulo', focus: 'Tax Structuring', languages: 'Portuguese, English, Spanish', email: 's.almeida@example.com' },
-    { name: 'Rahul Menon', title: 'Partner', practice: 'Corporate', industry: 'Technology', office: 'Singapore', focus: 'Mergers & Acquisitions', languages: 'English, Malayalam', email: 'r.menon@example.com' },
-    { name: 'Élodie Fabre', title: 'Associate', practice: 'Dispute Resolution', industry: 'Energy', office: 'Paris', focus: 'Commercial Litigation', languages: 'French, English, German', email: 'e.fabre@example.com' },
-    { name: 'Kenji Nakamura', title: 'Partner', practice: 'Finance', industry: 'Infrastructure', office: 'Tokyo', focus: 'Debt Finance', languages: 'Japanese, English', email: 'k.nakamura@example.com' },
-    { name: 'Priya Raghavan', title: 'Partner', practice: 'Corporate', industry: 'Private Capital', office: 'Hong Kong', focus: 'Private Equity', languages: 'English, Mandarin', email: 'p.raghavan@example.com' },
-    { name: 'Thomas Bergmann', title: 'Partner', practice: 'Tax', industry: 'Private Capital', office: 'Frankfurt', focus: 'Tax Structuring', languages: 'German, English', email: 't.bergmann@example.com' },
-    { name: 'Lucía Vargas', title: 'Associate', practice: 'Corporate', industry: 'Energy', office: 'Mexico City', focus: 'Mergers & Acquisitions', languages: 'Spanish, English', email: 'l.vargas@example.com' },
-    { name: 'Oliver Grant', title: 'Partner', practice: 'Finance', industry: 'Energy', office: 'Houston', focus: 'Project Finance', languages: 'English', email: 'o.grant@example.com' },
-    { name: 'Yara Haddad', title: 'Counsel', practice: 'Dispute Resolution', industry: 'Infrastructure', office: 'Dubai', focus: 'International Arbitration', languages: 'Arabic, English, French', email: 'y.haddad@example.com' },
-    { name: 'Chloe Bennett', title: 'Associate', practice: 'Finance', industry: 'Technology', office: 'San Francisco', focus: 'Banking & Finance', languages: 'English', email: 'c.bennett@example.com' },
-    { name: 'Henrik Sørensen', title: 'Partner', practice: 'Corporate', industry: 'Energy', office: 'Copenhagen', focus: 'Mergers & Acquisitions', languages: 'Danish, English', email: 'h.sorensen@example.com' },
-    { name: 'Ana Kowalski', title: 'Partner', practice: 'Dispute Resolution', industry: 'Technology', office: 'Warsaw', focus: 'Commercial Litigation', languages: 'Polish, English', email: 'a.kowalski@example.com' },
-    { name: 'Wei Zhang', title: 'Partner', practice: 'Tax', industry: 'Infrastructure', office: 'Shanghai', focus: 'Tax Structuring', languages: 'Mandarin, English', email: 'w.zhang@example.com' },
-    { name: 'Grace Okonkwo', title: 'Partner', practice: 'Corporate', industry: 'Private Capital', office: 'Lagos', focus: 'Private Equity', languages: 'English, Igbo', email: 'g.okonkwo@example.com' },
-    { name: 'James Cartwright', title: 'Partner', practice: 'Finance', industry: 'Infrastructure', office: 'London', focus: 'Debt Finance', languages: 'English', email: 'j.cartwright@example.com' },
-    { name: 'Mei Lin', title: 'Associate', practice: 'Corporate', industry: 'Technology', office: 'Beijing', focus: 'Mergers & Acquisitions', languages: 'Mandarin, English', email: 'm.lin@example.com' },
-    { name: 'Nikolas Papadopoulos', title: 'Partner', practice: 'Dispute Resolution', industry: 'Energy', office: 'Athens', focus: 'International Arbitration', languages: 'Greek, English', email: 'n.papadopoulos@example.com' },
-    { name: 'Sarah Lindqvist', title: 'Counsel', practice: 'Tax', industry: 'Technology', office: 'Stockholm', focus: 'Tax Structuring', languages: 'Swedish, English', email: 's.lindqvist@example.com' },
-    { name: 'David Osei-Mensah', title: 'Partner', practice: 'Finance', industry: 'Private Capital', office: 'Accra', focus: 'Banking & Finance', languages: 'English, Twi', email: 'd.osei-mensah@example.com' },
-    { name: 'Elena Petrova', title: 'Associate', practice: 'Corporate', industry: 'Infrastructure', office: 'Prague', focus: 'Project Finance', languages: 'Czech, English, Russian', email: 'e.petrova@example.com' },
-    { name: 'Farhan Siddiqui', title: 'Partner', practice: 'Corporate', industry: 'Private Capital', office: 'Dubai', focus: 'Private Equity', languages: 'English, Urdu', email: 'f.siddiqui@example.com' },
-    { name: 'Beatrice Moreau', title: 'Partner', practice: 'Tax', industry: 'Private Capital', office: 'Luxembourg', focus: 'Tax Structuring', languages: 'French, English, German', email: 'b.moreau@example.com' },
-    { name: 'Tobias Krause', title: 'Partner', practice: 'Dispute Resolution', industry: 'Infrastructure', office: 'Munich', focus: 'Commercial Litigation', languages: 'German, English', email: 't.krause@example.com' }
+    {
+      name: 'Jeff Hughes',
+      title: 'Principal Consultant',
+      practice: 'Corporate & Commercial',
+      industry: 'Technology',
+      office: 'Seattle',
+      focus: 'Mergers & Acquisitions',
+      languages: 'English, Spanish',
+      email: 'jeff.hughes@cldlegalconsult.online',
+      phone: '+1 206 555 0142'
+    }
   ];
+
 
   /* --- Insights --------------------------------------------------- */
   var INSIGHTS = [

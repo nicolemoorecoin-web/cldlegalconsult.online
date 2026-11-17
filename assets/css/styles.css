@@ -1,10 +1,12 @@
 /* ==================================================================
-   White & Case — academic replica
+   CLD Legal Consultant
    assets/css/styles.css
 
-   Design tokens below were extracted from the live site's compiled
-   theme stylesheet (whitecase.com, Nov 2026) so the replica matches
-   the original's colour and spacing system.
+   The colour and spacing tokens below were derived from the compiled
+   theme stylesheet of a large international law firm's public site, and
+   are used here as the basis for this site's own visual system. The
+   layout metrics (header height, block spacing, mega-menu lead column,
+   body measure) follow the same reference. See README.md for details.
 
    Contents
      01  Tokens
@@ -761,48 +763,6 @@ a:hover { text-decoration: underline; }
   gap: 1rem;
 }
 
-/* Tinted art panels used where a photograph would normally sit */
-.art {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: var(--ink-2);
-}
-.art::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(120% 90% at 78% 18%, rgba(81, 65, 212, 0.85), transparent 60%),
-    linear-gradient(160deg, #26282e 0%, #1b1b1b 70%);
-}
-.art::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(120deg, #000 20%, transparent 85%);
-}
-.art--b::before { background: radial-gradient(120% 90% at 22% 78%, rgba(38, 17, 201, 0.9), transparent 62%), linear-gradient(200deg, #383b43, #1b1b1b 75%); }
-.art--c::before { background: radial-gradient(120% 90% at 62% 82%, rgba(38, 17, 201, 0.75), transparent 58%), linear-gradient(20deg, #101013, #383b43 80%); }
-.art--d::before { background: linear-gradient(135deg, #383b43 0%, #26282e 45%, #2611c9 190%); }
-.art--e::before { background: radial-gradient(90% 70% at 50% 100%, rgba(255, 255, 255, 0.18), transparent 60%), linear-gradient(170deg, #1b1b1b, #383b43); }
-.art--f::before { background: linear-gradient(30deg, #2611c9 0%, #383b43 55%, #1b1b1b 100%); }
-
-.art__label {
-  position: absolute;
-  left: 1.5rem;
-  bottom: 1.25rem;
-  z-index: 2;
-  font-size: var(--fs-micro);
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-}
 
 /* Compact icon/stat tiles */
 .tile {
@@ -871,7 +831,7 @@ a:hover { text-decoration: underline; }
    ------------------------------------------------------------------ */
 .filterbar {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr auto;
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: 1rem;
   align-items: end;
   padding: 1.75rem;
@@ -1357,6 +1317,138 @@ a:hover { text-decoration: underline; }
 }
 .to-top.is-visible { opacity: 1; visibility: visible; }
 .to-top svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+/* ------------------------------------------------------------------
+   21  People directory & principal profile
+   ------------------------------------------------------------------ */
+.find-panel {
+  display: none;
+  margin-bottom: 3rem;
+}
+.find-panel.is-open {
+  display: block;
+  animation: dialog-in 240ms var(--ease);
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: start;
+  padding-block: 3rem;
+  border-top: 1px solid var(--line);
+}
+.profile__media img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 22%;
+}
+.profile__name {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+.profile__role {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.profile__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  margin: 2rem 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+.profile__facts dt {
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.35rem;
+}
+.profile__facts dd { margin: 0; font-size: var(--fs-small); line-height: 1.6; }
+
+.matters { margin-top: 1.5rem; }
+.matters li {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 1.5rem 2.5rem;
+  align-items: start;
+}
+.matters li:last-child { border-bottom: 1px solid var(--line); }
+.matters__title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.matters__summary { font-size: var(--fs-small); color: var(--grey); max-width: 68ch; }
+.matters__meta {
+  text-align: right;
+  font-size: var(--fs-micro);
+  color: var(--grey);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.matters__meta b {
+  display: block;
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 0;
+  margin-bottom: 0.3rem;
+}
+
+.ongoing {
+  padding: 2.25rem 2rem;
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.82);
+  border-left: 4px solid var(--accent);
+}
+.ongoing h3 { color: #fff; font-size: 1.35rem; }
+.ongoing p { max-width: 68ch; }
+.ongoing ul { margin-top: 1.25rem; }
+.ongoing li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-size: var(--fs-small);
+}
+.ongoing li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+.detail-list { margin-top: 1.25rem; }
+.detail-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-small);
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 1rem;
+}
+.detail-list li:last-child { border-bottom: 0; }
+.detail-list span { color: var(--grey); }
+.detail-list b { font-weight: 600; }
+
+@media (max-width: 1024px) {
+  .profile { grid-template-columns: 1fr; gap: 2rem; }
+  .profile__media { max-width: 320px; }
+  .matters li { grid-template-columns: 1fr; gap: 0.75rem; }
+  .matters__meta { text-align: left; }
+}
+
+@media (max-width: 720px) {
+  .profile__facts { grid-template-columns: 1fr; }
+}
 
 /* ------------------------------------------------------------------
    20  Utilities, motion, print

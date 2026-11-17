@@ -231,17 +231,17 @@ const PAGE_META = {
   'index.html': {
     title: 'Home',
     description:
-      'An academic front-end replica of the White & Case LLP website, built as a final-year computer science project.',
+      'CLD Legal Consultant — corporate and commercial legal advice from Seattle, backed by a network of 2,000+ lawyers across 45 offices.',
     bodyClass: 'page-home'
   },
   'services.html': {
     title: 'Services',
-    description: 'Industries, practices and regions covered by the firm.',
+    description: 'Industries, practices and regions covered by CLD Legal Consultant.',
     bodyClass: 'page-services'
   },
   'people.html': {
     title: 'People',
-    description: 'Search the firm’s lawyers by name, practice, industry and office.',
+    description: 'Search the directory, and read the full profile of Jeff Hughes, Principal Consultant.',
     bodyClass: 'page-people'
   },
   'insights.html': {
@@ -251,7 +251,7 @@ const PAGE_META = {
   },
   'locations.html': {
     title: 'Offices',
-    description: 'All 43 offices across 29 countries, grouped by region.',
+    description: 'All 45 offices across 31 countries, grouped by region.',
     bodyClass: 'page-locations'
   },
   'careers.html': {
@@ -266,7 +266,7 @@ const PAGE_META = {
   },
   'contact.html': {
     title: 'Contact',
-    description: 'Contact the firm, our offices and our media relations team.',
+    description: 'Contact CLD Legal Consultant, our offices and our media relations team.',
     bodyClass: 'page-contact'
   }
 };

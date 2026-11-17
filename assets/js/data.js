@@ -325,12 +325,13 @@
     {
       name: 'Jeff Hughes',
       title: 'Principal Consultant',
-      practice: 'Corporate & Commercial',
-      industry: 'Technology',
+      practice: 'Criminal Defense',
+      industry: 'Litigation',
       office: 'Seattle',
-      focus: 'Mergers & Acquisitions',
+      focus: 'Drug Offences & Airport Cases',
       languages: 'English, Spanish',
       email: 'jeff.hughes@cldlegalconsult.online',
+      photo: 'assets/img/photos/tinyjeff.jpg',
       profile: 'jeff-hughes.html'
     }
   ];
@@ -369,14 +370,21 @@
   ];
 
   var PRACTICES = [
-    { name: 'Corporate', blurb: 'Mergers & acquisitions, joint ventures and corporate governance.', count: 94 },
-    { name: 'Banking & Finance', blurb: 'Acquisition finance, syndicated lending, structured finance and capital markets.', count: 78 },
-    { name: 'Dispute Resolution', blurb: 'Commercial litigation, international arbitration and investigations.', count: 87 },
-    { name: 'Tax', blurb: 'Corporate, transaction and dispute tax work across jurisdictions.', count: 44 },
-    { name: 'Competition', blurb: 'Merger control, cartel investigations and state aid.', count: 25 },
-    { name: 'Employment, pensions & incentives', blurb: 'Executive arrangements, workforce change and remuneration.', count: 29 },
-    { name: 'IP & Data', blurb: 'Patents, trade marks, licensing and data protection.', count: 33 },
-    { name: 'Real Estate', blurb: 'Acquisition, development, finance and leasing.', count: 18 }
+    { name: 'Corporate and Business Law', blurb: 'Formation, governance, shareholder arrangements and day-to-day business advice.', count: 94 },
+    { name: 'International Law', blurb: 'Cross-border transactions, trade, sanctions and foreign investment.', count: 41 },
+    { name: 'Civil Litigation', blurb: 'Contract, property and commercial disputes, from demand through trial.', count: 87 },
+    { name: 'Criminal Defense', blurb: 'Investigations, arrests, trials, sentencing and appeals.', count: 96 },
+    { name: 'Real Estate Law', blurb: 'Purchase, sale, lease, development and finance.', count: 18 },
+    { name: 'Immigration Law', blurb: 'Visas, residency, citizenship and deportation defence.', count: 37 },
+    { name: 'Banking and Finance Law', blurb: 'Lending, finance, restructurings and financial regulation.', count: 78 },
+    { name: 'Contract Law', blurb: 'Drafting, negotiation, variation and enforcement of commercial agreements.', count: 63 },
+    { name: 'Intellectual Property Law', blurb: 'Patents, trade marks, licensing and infringement.', count: 33 },
+    { name: 'Employment Law', blurb: 'Contracts, dismissals, discrimination and workplace policy.', count: 29 },
+    { name: 'Family Law', blurb: 'Separation, children, financial settlements and mediation.', count: 24 },
+    { name: 'Estate Planning', blurb: 'Wills, trusts, probate and succession.', count: 21 },
+    { name: 'Tax Law', blurb: 'Structuring, compliance, transactions and disputes.', count: 44 },
+    { name: 'Securities Law', blurb: 'Capital markets, disclosure and enforcement.', count: 26 },
+    { name: 'Personal Injury Law', blurb: 'Road traffic, workplace and medical claims.', count: 35 }
   ];
 
   var REGIONS = [

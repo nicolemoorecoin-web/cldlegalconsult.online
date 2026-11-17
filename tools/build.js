@@ -264,10 +264,10 @@ const PAGE_META = {
     bodyClass: 'page-people'
   },
   'jeff-hughes.html': {
-    title: 'Jeff Hughes — Principal Consultant',
+    title: 'Jeff Hughes — Criminal Defence',
     path: '/jeff-hughes.html',
     description:
-      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, advising on mergers and acquisitions, private capital and joint ventures.',
+      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, defending clients in criminal cases — drug offences, airport and border cases, extradition, sentencing and appeals.',
     bodyClass: 'page-people',
     ogImage: '/assets/img/photos/jeff-hughes.jpg'
   },
@@ -368,9 +368,9 @@ function personLd() {
     alternateName: 'Jeffrey A. Hughes',
     givenName: 'Jeff',
     familyName: 'Hughes',
-    jobTitle: 'Principal Consultant',
+    jobTitle: 'Principal Consultant, Criminal Defense',
     description:
-      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, advising founders, investors and boards on mergers and acquisitions, private capital and joint ventures, and representing clients in criminal defence matters.',
+      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, a criminal defence lawyer representing clients in drug offences, airport and border cases, extradition, white-collar charges, sentencing and appeals.',
     url: SITE.origin + '/jeff-hughes.html',
     mainEntityOfPage: SITE.origin + '/jeff-hughes.html',
     image: SITE.origin + '/assets/img/photos/jeff-hughes.jpg',
@@ -398,12 +398,13 @@ function personLd() {
       }
     },
     knowsAbout: [
-      'Mergers and acquisitions',
-      'Private capital transactions',
-      'Joint ventures and strategic alliances',
-      'Corporate governance',
-      'Technology transactions and licensing',
-      'Criminal defence'
+      'Criminal defence',
+      'Drug offences and trafficking',
+      'Airport and border cases',
+      'Search and seizure',
+      'Extradition',
+      'Sentencing and appeals',
+      'White-collar defence'
     ]
   };
 }
@@ -448,6 +449,23 @@ function writeRobots() {
   fs.writeFileSync(path.join(ROOT, 'robots.txt'), txt, 'utf8');
 }
 
+/* --- Practice cards ------------------------------------------------ */
+function renderPracticeCards() {
+  return data.practices
+    .map((p) =>
+      '          <article class="card reveal">\n' +
+      '            <div class="card__body">\n' +
+      '              <p class="card__kicker">Practice</p>\n' +
+      '              <h3 class="card__title">' + escapeAttr(p.name) + '</h3>\n' +
+      '              <p class="card__text">' + escapeAttr(p.blurb) + '</p>\n' +
+      '              <div class="card__meta"><span>' + p.count +
+      ' lawyers</span><a href="people.html">Explore</a></div>\n' +
+      '            </div>\n' +
+      '          </article>'
+    )
+    .join('\n');
+}
+
 /* --- build -------------------------------------------------------- */
 function build() {
   const files = fs.readdirSync(PAGES).filter((f) => f.endsWith('.html'));
@@ -476,7 +494,8 @@ function build() {
       megaPanels: renderMegaPanels(active),
       drawer: renderDrawer(active),
       footerColumns: renderFooterColumns(),
-      officesByRegion: renderOfficesByRegion()
+      officesByRegion: renderOfficesByRegion(),
+      practiceCards: renderPracticeCards()
     });
 
     if (meta.noindex) {

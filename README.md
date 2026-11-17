@@ -49,8 +49,17 @@ Jeff Hughes and links to his profile. Nothing is shown by default.
 The principal's full profile — biography, focus areas, eight matters handled, the matter
 currently live, education, admissions, recognition, publications, speaking commitments and
 memberships — lives on its own page, `jeff-hughes.html`. That page is what a search engine
-indexes for his name, and it carries `Person` structured data: name, job title,
-description, employer, address, languages, education and areas of practice.
+indexes for his name, and it carries `Person` structured data: name, alternate name, job
+title, description, employer, address, languages, education and areas of practice.
+
+He practises **criminal defence**: drug offences, airport and border cases, search and
+seizure, white-collar charges, extradition, sentencing and appeals. The eight closed matters
+are defence matters, so the value column shows the forum and year rather than a deal value.
+
+The two filter dropdowns carry the full lists rather than only what the directory happens to
+hold: **fifteen practices** and **all forty-five offices**. Both come from
+`assets/js/data.js`, so adding a practice or an office updates the services page, the
+directory filters and the footer office list in one edit.
 
 The site's firm-level figures (2,000+ lawyers across 45 offices in 31 countries) describe
 the **network** the practice draws on, not its headcount.

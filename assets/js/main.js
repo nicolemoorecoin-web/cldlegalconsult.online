@@ -363,8 +363,10 @@
           select.appendChild(opt);
         });
     }
-    fill(practice, lawyers.map(function (l) { return l.practice; }));
-    fill(office, lawyers.map(function (l) { return l.office; }));
+    // The dropdowns carry the whole practice list and every office, not
+    // just the one the directory happens to hold.
+    fill(practice, (DATA.practices || []).map(function (p) { return p.name; }));
+    fill(office, (DATA.offices || []).map(function (o) { return o.city; }));
 
     // The directory is searched by name. Any part of a name matches, so
     // "hug", "hughes" and "jeff h" all find the same person.
@@ -412,15 +414,18 @@
 
       container.innerHTML = rows.map(function (l) {
         var href = l.profile || ('contact.html');
+        var avatar = l.photo
+          ? '<div class="person__avatar"><img src="' + esc(l.photo) + '" alt="Portrait of ' +
+            esc(l.name) + '" width="72" height="88" loading="lazy"></div>'
+          : '<div class="person__avatar" aria-hidden="true">' + esc(initials(l.name)) + '</div>';
         return '' +
           '<article class="person reveal is-visible">' +
-            '<div class="person__avatar" aria-hidden="true">' + esc(initials(l.name)) + '</div>' +
+            avatar +
             '<div class="person__body">' +
               '<h3 class="person__name"><a href="' + esc(href) + '">' + esc(l.name) + '</a></h3>' +
               '<p class="person__role">' + esc(l.title) + ' — ' + esc(l.focus) + '</p>' +
               '<div class="person__meta">' +
                 '<span>' + esc(l.practice) + '</span>' +
-                '<span>' + esc(l.industry) + '</span>' +
                 '<span>' + esc(l.office) + '</span>' +
                 '<span>' + esc(l.languages) + '</span>' +
               '</div>' +

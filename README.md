@@ -202,6 +202,34 @@ polyfill layer and no transpilation step, because there is nothing to transpile.
 
 ---
 
+## Deployment
+
+The site is published with **GitHub Pages**, from the repository root of
+`nicolemoorecoin-web/cldlegalconsult.online` (public), branch `main`, path `/`.
+
+**The published HTML is generated.** The repository root holds the built pages *and* the
+sources in `src/`, so a change to a page template is not live until it is rebuilt:
+
+```bash
+node tools/build.js          # regenerates the root .html files
+git add -A && git commit -m "…"
+git push                     # Pages rebuilds and publishes automatically
+```
+
+Pages picks up the `CNAME` file and serves the site at **cldlegalconsult.online**. The
+apex points at GitHub's addresses and `www` is a CNAME to the apex:
+
+| Type | Host | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| AAAA | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| CNAME | `www` | `cldlegalconsult.online` |
+
+The DNS is at Namecheap, and the certificate is issued and renewed automatically by
+GitHub. `404.html` is published as the custom 404.
+
+---
+
 ## A note on the content
 
 This is a **student project**. CLD Legal Consultant is a fictional practice: every name,

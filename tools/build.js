@@ -375,7 +375,6 @@ function personLd() {
     mainEntityOfPage: SITE.origin + '/jeff-hughes.html',
     image: SITE.origin + '/assets/img/photos/jeff-hughes.jpg',
     email: 'mailto:jeff.hughes@cldlegalconsult.online',
-    telephone: SITE.phone,
     worksFor: { '@id': SITE.origin + '/#organization' },
     address: {
       '@type': 'PostalAddress',

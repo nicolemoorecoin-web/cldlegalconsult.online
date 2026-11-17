@@ -331,7 +331,6 @@
       focus: 'Mergers & Acquisitions',
       languages: 'English, Spanish',
       email: 'jeff.hughes@cldlegalconsult.online',
-      phone: '+1 (904) 397-7052',
       profile: 'jeff-hughes.html'
     }
   ];

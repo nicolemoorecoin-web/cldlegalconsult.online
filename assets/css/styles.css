@@ -1340,9 +1340,9 @@ a:hover { text-decoration: underline; }
 }
 .profile__media img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center top;
 }
 .profile__name {
   font-size: clamp(2rem, 3.6vw, 3rem);

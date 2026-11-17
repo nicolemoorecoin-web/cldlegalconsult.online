@@ -365,11 +365,12 @@ function personLd() {
     '@type': 'Person',
     '@id': SITE.origin + '/jeff-hughes.html#person',
     name: 'Jeff Hughes',
+    alternateName: 'Jeffrey A. Hughes',
     givenName: 'Jeff',
     familyName: 'Hughes',
     jobTitle: 'Principal Consultant',
     description:
-      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, advising founders, investors and boards on mergers and acquisitions, private capital, joint ventures and technology transactions.',
+      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, advising founders, investors and boards on mergers and acquisitions, private capital and joint ventures, and representing clients in criminal defence matters.',
     url: SITE.origin + '/jeff-hughes.html',
     mainEntityOfPage: SITE.origin + '/jeff-hughes.html',
     image: SITE.origin + '/assets/img/photos/jeff-hughes.jpg',
@@ -402,7 +403,8 @@ function personLd() {
       'Private capital transactions',
       'Joint ventures and strategic alliances',
       'Corporate governance',
-      'Technology transactions and licensing'
+      'Technology transactions and licensing',
+      'Criminal defence'
     ]
   };
 }

@@ -230,7 +230,7 @@ function applyVars(html, vars) {
 /* --- Site-wide constants ------------------------------------------- */
 const SITE = {
   name: 'CLD Legal Consultant',
-  origin: 'https://cldlegalconsult.online',
+  origin: 'https://www.cldlegalconsult.online',
   phone: '+1 (904) 397-7052',
   email: 'info@cldlegalconsult.online',
   supportEmail: 'support@cldlegalconsult.online',
@@ -467,6 +467,8 @@ function build() {
       activeNav: active,
       year: String(new Date().getFullYear()),
       canonicalUrl: SITE.origin + meta.path,
+      siteUrl: SITE.origin + '/',
+      siteUrlLabel: SITE.origin.replace(/^https:\/\//, ''),
       ogImage: SITE.origin + (meta.ogImage || SITE.ogImage),
       structuredData: structuredDataFor(meta.path),
       nav: renderNav(active),

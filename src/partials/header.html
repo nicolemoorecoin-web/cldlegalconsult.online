@@ -1,0 +1,49 @@
+  <div class="utility">
+    <div class="container">
+      <nav class="utility__links" aria-label="Utility navigation">
+        <a href="locations.html">Offices</a>
+        <a href="careers.html#alumni">Alumni</a>
+        <a href="insights.html#subscribe">Subscribe</a>
+      </nav>
+      <span class="utility__meta">English</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="index.html" aria-label="White and Case — home">
+        <span class="wordmark__name">WHITE<span class="wordmark__amp">&amp;</span>CASE</span>
+        <span class="wordmark__sub">International law firm</span>
+      </a>
+
+      {{nav}}
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Open search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" data-drawer-open aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    {{megaPanels}}
+  </header>
+
+  <div class="mega__scrim" data-mega-scrim hidden></div>
+
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Site menu">
+    <div class="drawer__head">
+      <span class="wordmark">
+        <span class="wordmark__name">WHITE<span class="wordmark__amp">&amp;</span>CASE</span>
+      </span>
+      <button class="icon-btn" type="button" data-drawer-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    {{drawer}}
+    <div class="drawer__foot">
+      <a class="btn btn--sm" href="contact.html">Contact us</a>
+    </div>
+  </aside>

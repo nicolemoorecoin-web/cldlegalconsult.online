@@ -1,0 +1,13 @@
+{
+  "name": "whitecase-academic-replica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Academic front-end replica of the White & Case LLP website. Static HTML, CSS and vanilla JavaScript — no database, no dependencies.",
+  "scripts": {
+    "build": "node tools/build.js",
+    "serve": "node tools/serve.js",
+    "check": "node tools/build.js"
+  },
+  "keywords": ["academic-project", "frontend", "static-site", "vanilla-js"],
+  "license": "UNLICENSED"
+}

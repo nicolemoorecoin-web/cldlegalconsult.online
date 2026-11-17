@@ -1,0 +1,91 @@
+{{> head}}
+{{> header}}
+
+<main id="main-content">
+
+  <section class="banner">
+    <div class="banner__media">
+      <img src="assets/img/about.svg" alt="">
+    </div>
+    <div class="container banner__inner">
+      <span class="eyebrow">About us</span>
+      <h1>Offices</h1>
+      <p>
+        Select one of our 45 offices in 31 countries for more information. All offices work as a
+        single firm.
+      </p>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Offices</li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Where we are</span>
+          <h2 class="display display--section">Our offices</h2>
+        </div>
+        <p id="office-count">45 offices</p>
+      </div>
+
+      <div class="chips" role="group" aria-label="Filter offices by region" style="margin-bottom:2.5rem">
+        <button class="chip" type="button" data-office-region="" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-office-region="americas" aria-pressed="false">Americas</button>
+        <button class="chip" type="button" data-office-region="emea" aria-pressed="false">EMEA</button>
+        <button class="chip" type="button" data-office-region="asia-pacific" aria-pressed="false">Asia-Pacific</button>
+      </div>
+
+      <div class="grid grid--3" id="office-results"></div>
+
+      <p class="notice" style="margin-top:2.5rem">
+        <strong>Associated firm.</strong> Muscat is served by an associated firm. In this prototype the
+        listing is presented alongside our own offices.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--wash section--tight">
+    <div class="container grid grid--3">
+      <div class="reveal">
+        <span class="eyebrow">Americas</span>
+        <h3 class="display display--section">11 offices</h3>
+        <p class="text-muted">From Boston to São Paulo, our Americas teams cover US, Canadian and Latin American matters.</p>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">EMEA</span>
+        <h3 class="display display--section">25 offices</h3>
+        <p class="text-muted">Our largest region, covering Europe, the Middle East and Africa.</p>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Asia-Pacific</span>
+        <h3 class="display display--section">9 offices</h3>
+        <p class="text-muted">A single Asia-Pacific team with deep local capability in every major market.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--measure text-center">
+      <span class="eyebrow">Visit us</span>
+      <h2 class="display display--section">Which office suits your matter?</h2>
+      <p class="lede text-center" style="margin-inline:auto">
+        Tell us where the work is and we will connect you with the right team — including the
+        offices you have not thought of yet.
+      </p>
+      <p style="margin-top:2rem"><a class="btn" href="contact.html">Contact us</a></p>
+    </div>
+  </section>
+
+</main>
+
+{{> footer}}
+{{> cookie}}
+{{> dialogs}}

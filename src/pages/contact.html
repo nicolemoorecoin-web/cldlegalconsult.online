@@ -1,0 +1,160 @@
+{{> head}}
+{{> header}}
+
+<main id="main-content">
+
+  <section class="banner">
+    <div class="banner__media">
+      <img src="assets/img/services.svg" alt="">
+    </div>
+    <div class="container banner__inner">
+      <span class="eyebrow">Contact</span>
+      <h1>Contact us</h1>
+      <p>
+        Tell us what you are working on. A senior lawyer will review your enquiry and respond
+        with the right team for the matter.
+      </p>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Contact</li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container grid grid--sidebar">
+      <div>
+        <span class="eyebrow">Your enquiry</span>
+        <h2 class="display display--section">How can we help?</h2>
+        <p class="text-muted" style="margin-bottom:2rem">
+          Please do not include confidential information until a conflict check has been completed.
+        </p>
+
+        <form class="form-grid" data-validate novalidate>
+          <div class="field">
+            <label for="c-name">Full name</label>
+            <input class="input" type="text" id="c-name" name="name" required>
+            <p class="field-error">Please tell us your name.</p>
+          </div>
+          <div class="field">
+            <label for="c-email">Email address</label>
+            <input class="input" type="email" id="c-email" name="email" required>
+            <p class="field-error">Please enter a valid email address.</p>
+          </div>
+          <div class="field">
+            <label for="c-company">Organisation</label>
+            <input class="input" type="text" id="c-company" name="company">
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="c-phone">Telephone</label>
+            <input class="input" type="tel" id="c-phone" name="phone">
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="c-office">Preferred office</label>
+            <select class="select" id="c-office" name="office">
+              <option>No preference</option>
+              <option>Americas</option>
+              <option>EMEA</option>
+              <option>Asia-Pacific</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-type">Type of matter</label>
+            <select class="select" id="c-type" name="type">
+              <option>Corporate / M&amp;A</option>
+              <option>Banking &amp; finance</option>
+              <option>Dispute resolution</option>
+              <option>Tax</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="c-message">How can we help?</label>
+            <textarea class="input" id="c-message" name="message" rows="7" required></textarea>
+            <p class="field-error">Please give us a short description of the matter.</p>
+          </div>
+          <div class="field full">
+            <label class="checkbox">
+              <input type="checkbox" id="c-consent" name="consent" required>
+              <span>I consent to the firm storing this enquiry in order to respond to it.</span>
+            </label>
+            <p class="field-error">Please tick the box to continue.</p>
+          </div>
+          <div class="field full">
+            <button class="btn" type="submit">Send enquiry</button>
+          </div>
+          <div class="form-status full" data-form-status role="status"></div>
+        </form>
+      </div>
+
+      <aside>
+        <div class="reveal" style="margin-bottom:2rem">
+          <span class="eyebrow">Head office</span>
+          <h3 class="display display--section">New York</h3>
+          <address style="font-style:normal;color:var(--grey);line-height:1.7">
+            1155 Avenue of the Americas<br>
+            New York, NY 10036<br>
+            United States<br>
+            <a href="tel:+12125550100">+1 212 555 0100</a>
+          </address>
+        </div>
+
+        <div class="reveal" id="media">
+          <span class="eyebrow">Media contacts</span>
+          <h3 class="display display--section">Press office</h3>
+          <p class="text-muted">
+            For interview requests, comment or a copy of our current firm description, contact the
+            media relations team.
+          </p>
+          <p class="text-muted">
+            <a href="mailto:media@example.com">media@example.com</a><br>
+            <a href="tel:+12125550120">+1 212 555 0120</a>
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top:2rem">
+          <span class="eyebrow">Subscribe</span>
+          <h3 class="display display--section">Client updates</h3>
+          <p class="text-muted">
+            Receive our client alerts and market commentary as they are published.
+          </p>
+          <p><a class="link-arrow" href="insights.html#subscribe">Register for updates</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--wash section--tight">
+    <div class="container grid grid--3">
+      <div class="reveal">
+        <span class="eyebrow">Existing client</span>
+        <h3 class="display display--section">Billing queries</h3>
+        <p class="text-muted">Invoices, trust balances and fee arrangements are handled by your relationship partner.</p>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Candidate</span>
+        <h3 class="display display--section">Applications</h3>
+        <p class="text-muted">Questions about a role or an application go to the recruitment team.</p>
+        <p><a class="link-arrow" href="careers.html#apply">Apply now</a></p>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Alumni</span>
+        <h3 class="display display--section">Former colleagues</h3>
+        <p class="text-muted">Keep your details current and stay connected to the firm.</p>
+        <p><a class="link-arrow" href="careers.html#alumni">Get in touch</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{{> footer}}
+{{> cookie}}
+{{> dialogs}}

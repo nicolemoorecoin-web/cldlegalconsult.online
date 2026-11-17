@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Abstract architectural composition in deep charcoal and electric blue">
+  <defs>
+    <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1b1b"/>
+      <stop offset="0.55" stop-color="#26282e"/>
+      <stop offset="1" stop-color="#101013"/>
+    </linearGradient>
+    <linearGradient id="hbeam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2611c9" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#2611c9" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="hglow" cx="0.78" cy="0.22" r="0.55">
+      <stop offset="0" stop-color="#5141d4" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2611c9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#hbg)"/>
+  <rect width="1600" height="900" fill="url(#hglow)"/>
+  <g stroke="#ffffff" stroke-opacity="0.055" stroke-width="1">
+    <path d="M0 120H1600M0 240H1600M0 360H1600M0 480H1600M0 600H1600M0 720H1600M0 840H1600"/>
+    <path d="M160 0V900M320 0V900M480 0V900M640 0V900M800 0V900M960 0V900M1120 0V900M1280 0V900M1440 0V900"/>
+  </g>
+  <g>
+    <polygon points="820,900 1180,900 1180,300 1040,300" fill="url(#hbeam)"/>
+    <rect x="1040" y="300" width="140" height="600" fill="#0d0d10" opacity="0.85"/>
+    <rect x="1180" y="360" width="240" height="540" fill="#2a2c33"/>
+    <rect x="1180" y="360" width="240" height="540" fill="none" stroke="#ffffff" stroke-opacity="0.14"/>
+    <g fill="#2611c9" opacity="0.75">
+      <rect x="1215" y="400" width="170" height="14"/>
+      <rect x="1215" y="440" width="170" height="14"/>
+      <rect x="1215" y="480" width="110" height="14"/>
+      <rect x="1215" y="520" width="170" height="14"/>
+      <rect x="1215" y="560" width="140" height="14"/>
+    </g>
+  </g>
+  <g opacity="0.9">
+    <rect x="120" y="120" width="360" height="6" fill="#2611c9"/>
+    <rect x="120" y="150" width="240" height="6" fill="#ffffff" opacity="0.25"/>
+    <rect x="120" y="180" width="300" height="6" fill="#ffffff" opacity="0.14"/>
+  </g>
+</svg>

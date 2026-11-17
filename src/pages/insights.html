@@ -1,0 +1,189 @@
+{{> head}}
+{{> header}}
+
+<main id="main-content">
+
+  <section class="banner">
+    <div class="banner__media">
+      <img src="assets/img/about.svg" alt="">
+    </div>
+    <div class="container banner__inner">
+      <span class="eyebrow">Insights</span>
+      <h1>Insights</h1>
+      <p>
+        Explore market trends, legal analysis, industry knowledge and practice capabilities from
+        across White &amp; Case.
+      </p>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Insights</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ Featured ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Featured</span>
+          <h2 class="display display--section">Featured series</h2>
+        </div>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card reveal" id="series">
+          <div class="art art--a"><span class="art__label">Series</span></div>
+          <div class="card__body">
+            <p class="card__kicker">Global market outlook</p>
+            <h3 class="card__title"><a href="insights.html#latest">The interconnected forces shaping our future</a></h3>
+            <p class="card__text">What more than 2,000 senior decision-makers told us about the year ahead.</p>
+            <div class="card__meta"><span>12 chapters</span><span>2026 edition</span></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="art art--b"><span class="art__label">Podcast</span></div>
+          <div class="card__body">
+            <p class="card__kicker">Cross-sector briefings</p>
+            <h3 class="card__title"><a href="insights.html#latest">Financing the critical minerals race</a></h3>
+            <p class="card__text">How capital is moving into the minerals the energy transition depends on.</p>
+            <div class="card__meta"><span>Episode 18</span><span>42 minutes</span></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="art art--d"><span class="art__label">Video</span></div>
+          <div class="card__body">
+            <p class="card__kicker">Partner perspectives</p>
+            <h3 class="card__title"><a href="insights.html#latest">The global reach of the AI Act</a></h3>
+            <p class="card__text">Partners from three offices on what the Act means for global operating models.</p>
+            <div class="card__meta"><span>18 minutes</span><span>3 speakers</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Latest ============ -->
+  <section class="section section--wash" id="latest">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Latest</span>
+          <h2 class="display display--section">Latest from the firm</h2>
+        </div>
+        <p class="results-bar__count" id="insight-count">16 items</p>
+      </div>
+
+      <div class="chips" style="margin-bottom:2rem" role="group" aria-label="Filter insights by format">
+        <button class="chip" type="button" data-insight-type="" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-insight-type="insights" aria-pressed="false">Insights</button>
+        <button class="chip" type="button" data-insight-type="alerts" aria-pressed="false">Alerts</button>
+        <button class="chip" type="button" data-insight-type="case-studies" aria-pressed="false">Case studies</button>
+        <button class="chip" type="button" data-insight-type="events" aria-pressed="false">Events &amp; webinars</button>
+        <button class="chip" type="button" data-insight-type="podcasts" aria-pressed="false">Podcasts</button>
+        <button class="chip" type="button" data-insight-type="videos" aria-pressed="false">Videos</button>
+        <button class="chip" type="button" data-insight-type="stories" aria-pressed="false">Stories</button>
+      </div>
+
+      <div id="insight-results"></div>
+      <p class="empty" id="insight-empty" hidden>Nothing published in that format yet. Try another filter.</p>
+    </div>
+  </section>
+
+  <!-- ============ Newsroom ============ -->
+  <section class="section" id="newsroom">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Newsroom</span>
+          <h2 class="display display--section">In the media</h2>
+        </div>
+        <a class="link-arrow" href="contact.html#media">Media contacts</a>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card reveal">
+          <div class="card__body">
+            <p class="card__kicker">Press release</p>
+            <h3 class="card__title"><a href="insights.html#latest">Firm opens a new office in Helsinki</a></h3>
+            <p class="card__text">The expansion adds capacity in the Nordics for private capital and infrastructure clients.</p>
+            <div class="card__meta"><span>4 November 2026</span><span>Newsroom</span></div>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card__body">
+            <p class="card__kicker">In the media</p>
+            <h3 class="card__title"><a href="insights.html#latest">Commentary on the refinancing market</a></h3>
+            <p class="card__text">A partner discusses what lenders are now insisting on in documentation and hedging.</p>
+            <div class="card__meta"><span>28 October 2026</span><span>Press</span></div>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card__body">
+            <p class="card__kicker">Awards</p>
+            <h3 class="card__title"><a href="about.html#awards">Recognised for energy and infrastructure work</a></h3>
+            <p class="card__text">The firm is ranked in five practice areas for 2026 across three major directories.</p>
+            <div class="card__meta"><span>20 October 2026</span><span>Awards</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Subscribe ============ -->
+  <section class="section section--dark" id="subscribe">
+    <div class="container container--measure">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Subscribe</span>
+          <h2 class="display display--section">Register for updates</h2>
+        </div>
+      </div>
+
+      <form class="form-grid" data-validate novalidate>
+        <div class="field">
+          <label for="sub-name">Full name</label>
+          <input class="input" type="text" id="sub-name" name="name" required>
+          <p class="field-error">Please tell us your name.</p>
+        </div>
+        <div class="field">
+          <label for="sub-email">Work email</label>
+          <input class="input" type="email" id="sub-email" name="email" required>
+          <p class="field-error">Please enter a valid email address.</p>
+        </div>
+        <div class="field full">
+          <label for="sub-topic">Which updates would you like?</label>
+          <select class="select" id="sub-topic" name="topic">
+            <option>All client alerts</option>
+            <option>Global market outlook</option>
+            <option>Partner perspectives</option>
+            <option>Events and invitations</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label class="checkbox">
+            <input type="checkbox" id="sub-consent" name="consent" required>
+            <span>I would like to receive the publications above and understand that I can unsubscribe at any time.</span>
+          </label>
+          <p class="field-error">Please tick the box to continue.</p>
+        </div>
+        <div class="field full">
+          <button class="btn" type="submit">Subscribe</button>
+        </div>
+        <div class="form-status full" data-form-status role="status"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+{{> footer}}
+{{> cookie}}
+{{> dialogs}}

@@ -1,0 +1,45 @@
+  <div class="dialog" id="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="dialog__panel">
+      <div class="dialog__head">
+        <h2 id="search-title">Search this site</h2>
+        <button class="dialog__close" type="button" data-search-close aria-label="Close search">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+        </button>
+      </div>
+
+      <form class="search-form" role="search" data-search-form>
+        <label class="visually-hidden" for="site-search">Search</label>
+        <input class="input" type="search" id="site-search" name="q" placeholder="Try “project finance” or “arbitration”" autocomplete="off">
+        <button class="btn" type="submit">Search</button>
+      </form>
+
+      <div class="search-hints">
+        <strong>Popular searches</strong>
+        <div>
+          <a href="services.html#practices">M&amp;A</a>
+          <a href="services.html#practices">Project finance</a>
+          <a href="services.html#practices">International arbitration</a>
+          <a href="insights.html">Global market outlook</a>
+          <a href="people.html">Find a lawyer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="share" aria-label="Share this page">
+    <button type="button" data-copy-link aria-label="Copy link to this page">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    </button>
+    <a href="mailto:?subject=White%20%26%20Case" aria-label="Share by email">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+    </a>
+  </div>
+
+  <button class="to-top" type="button" data-to-top aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

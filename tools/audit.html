@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Accessibility &amp; integrity audit</title>
+  <style>
+    html, body { margin: 0; font: 13px/1.55 Consolas, "Courier New", monospace; background: #fff; color: #1b1b1b; }
+    pre { padding: 1rem 1.25rem; white-space: pre-wrap; }
+    iframe { border: 0; height: 900px; width: 1440px; }
+  </style>
+</head>
+<body>
+  <pre id="out">Running the audit…</pre>
+  <div id="host"></div>
+
+  <script>
+  /* ------------------------------------------------------------------
+     tools/audit.html — a self-contained quality check.
+
+     Loads every built page in a same-origin iframe and reports:
+       · duplicate id attributes
+       · images with no alt attribute
+       · form controls with no associated label
+       · links and buttons with no accessible name
+       · the number of <h1> elements per page
+
+     Open it directly (file:// works if the browser allows local file
+     access) or through the dev server:
+
+         node tools/serve.js 8080
+         → http://localhost:8080/tools/audit.html
+     ------------------------------------------------------------------ */
+  var PAGES = ['index.html', 'services.html', 'people.html', 'insights.html',
+               'locations.html', 'careers.html', 'about.html', 'contact.html'];
+
+  var L = [];
+  var total = { dupIds: 0, noAlt: 0, noLabel: 0, emptyLink: 0, noBtnName: 0, h1: 0 };
+  var i = 0;
+
+  function audit(d, name) {
+    var issues = [];
+
+    var seen = {}, dup = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[id]'), function (el) {
+      if (seen[el.id]) { dup.push(el.id); } else { seen[el.id] = true; }
+    });
+    if (dup.length) issues.push('duplicate ids: ' + dup.join(', '));
+
+    var noAlt = [];
+    Array.prototype.forEach.call(d.querySelectorAll('img'), function (el) {
+      if (!el.hasAttribute('alt')) noAlt.push(el.getAttribute('src'));
+    });
+    if (noAlt.length) issues.push('img without alt: ' + noAlt.join(', '));
+
+    var noLabel = [];
+    Array.prototype.forEach.call(d.querySelectorAll('input, select, textarea'), function (el) {
+      if (el.type === 'hidden') return;
+      var labelled = (el.id && d.querySelector('label[for="' + el.id + '"]')) ||
+        el.closest('label') ||
+        el.getAttribute('aria-label') ||
+        el.getAttribute('aria-labelledby');
+      if (!labelled) noLabel.push(el.name || (el.type + '#' + (el.id || '?')));
+    });
+    if (noLabel.length) issues.push('unlabelled field: ' + noLabel.join(', '));
+
+    var emptyLink = [];
+    Array.prototype.forEach.call(d.querySelectorAll('a[href]'), function (el) {
+      var t = (el.textContent || '').trim();
+      if (!t && !el.getAttribute('aria-label') && !el.querySelector('img[alt]:not([alt=""])')) {
+        emptyLink.push(el.getAttribute('href'));
+      }
+    });
+    if (emptyLink.length) issues.push('link with no accessible name: ' + emptyLink.join(', '));
+
+    var noBtn = [];
+    Array.prototype.forEach.call(d.querySelectorAll('button'), function (el) {
+      if (!(el.textContent || '').trim() && !el.getAttribute('aria-label')) {
+        noBtn.push(el.className || el.type);
+      }
+    });
+    if (noBtn.length) issues.push('button with no accessible name: ' + noBtn.join(', '));
+
+    var h1s = d.querySelectorAll('h1').length;
+
+    total.dupIds += dup.length;
+    total.noAlt += noAlt.length;
+    total.noLabel += noLabel.length;
+    total.emptyLink += emptyLink.length;
+    total.noBtnName += noBtn.length;
+    total.h1 += h1s;
+
+    L.push('== ' + name + ' ==  h1=' + h1s + (h1s === 1 ? '  OK' : '  <<< expected exactly 1'));
+    if (issues.length) {
+      issues.forEach(function (x) { L.push('   ISSUE: ' + x); });
+    } else {
+      L.push('   clean');
+    }
+  }
+
+  function next() {
+    if (i >= PAGES.length) {
+      var clean = total.dupIds + total.noAlt + total.noLabel + total.emptyLink + total.noBtnName === 0;
+      L.push('');
+      L.push('TOTALS  duplicateIds=' + total.dupIds +
+             '  missingAlt=' + total.noAlt +
+             '  unlabelledFields=' + total.noLabel +
+             '  namelessLinks=' + total.emptyLink +
+             '  namelessButtons=' + total.noBtnName +
+             '  h1count=' + total.h1);
+      L.push('');
+      L.push(clean ? 'RESULT: PASS — no issues found.' : 'RESULT: FAIL — see the issues above.');
+      document.getElementById('out').textContent = L.join('\n');
+      return;
+    }
+
+    var name = PAGES[i];
+    var host = document.getElementById('host');
+    var f = document.createElement('iframe');
+    f.src = '../' + name;
+    f.width = 1440;
+    f.onload = function () {
+      setTimeout(function () {
+        try {
+          audit(f.contentDocument, name);
+        } catch (e) {
+          L.push('== ' + name + ' == ERR ' + e.message);
+        }
+        host.removeChild(f);
+        i++;
+        next();
+      }, 500);
+    };
+    host.appendChild(f);
+  }
+
+  next();
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Screenshots and local scratch output
+.screenshots/
+*.log
+
+# Node (there are no dependencies, but just in case)
+node_modules/
+
+# OS noise
+Thumbs.db
+.DS_Store

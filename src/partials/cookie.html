@@ -1,0 +1,51 @@
+  <div class="cookie" id="cookie-banner" role="region" aria-label="Cookie notice">
+    <div class="container cookie__inner">
+      <div>
+        <p>We use cookies to provide you with the best possible experience on this website. We only set those cookies if you accept them, and we never use the information to create user profiles. You can change your preferences at any time using the Cookie Settings button in the footer.</p>
+        <p><a href="about.html#legal">Cookie policy</a></p>
+      </div>
+      <div class="cookie__actions">
+        <button class="btn btn--sm btn--light" type="button" data-cookie-accept>Accept all</button>
+        <button class="btn btn--sm btn--outline-light" type="button" data-cookie-settings>Cookie settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog" id="cookie-prefs" role="dialog" aria-modal="true" aria-labelledby="prefs-title">
+    <div class="prefs__inner">
+      <div class="dialog__head">
+        <h2 id="prefs-title">Privacy preference centre</h2>
+        <button class="dialog__close" type="button" data-prefs-close aria-label="Close preferences">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+        </button>
+      </div>
+
+      <p class="text-muted">When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information is used to make the site work as you expect it to. You can choose not to allow some types of cookies.</p>
+
+      <div class="prefs__cat">
+        <h3>Strictly necessary cookies</h3>
+        <p>Always active. These are necessary for the website to function and cannot be switched off.</p>
+      </div>
+
+      <div class="prefs__cat">
+        <h3><label class="checkbox"><input type="checkbox" checked disabled> Functional cookies</label></h3>
+        <p>Enable enhanced functionality and personalisation, such as remembering your last visited section.</p>
+      </div>
+
+      <div class="prefs__cat">
+        <h3><label class="checkbox"><input type="checkbox" id="pref-performance" checked> Performance cookies</label></h3>
+        <p>Allow us to count visits and traffic sources so we can measure and improve the site. All information is aggregated and anonymous.</p>
+      </div>
+
+      <div class="prefs__cat">
+        <h3><label class="checkbox"><input type="checkbox" id="pref-targeting"> Targeting cookies</label></h3>
+        <p>Used by our advertising partners to build a profile of your interests. Blocking these cookies limits targeted advertising.</p>
+      </div>
+
+      <div class="prefs__actions">
+        <button class="btn btn--sm btn--ghost" type="button" data-prefs-reject>Reject all</button>
+        <button class="btn btn--sm btn--ghost" type="button" data-prefs-cancel>Cancel</button>
+        <button class="btn btn--sm" type="button" data-prefs-save>Confirm my choices</button>
+      </div>
+    </div>
+  </div>

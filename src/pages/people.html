@@ -1,0 +1,96 @@
+{{> head}}
+{{> header}}
+
+<main id="main-content">
+
+  <section class="banner">
+    <div class="banner__media">
+      <img src="assets/img/hero.svg" alt="">
+    </div>
+    <div class="container banner__inner">
+      <span class="eyebrow">People</span>
+      <h1>People</h1>
+      <p>
+        Our lawyers are recognised for their legal innovation and outstanding service to clients
+        worldwide. Search by name, practice, industry or office.
+      </p>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>People</li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <form class="filterbar" role="search" aria-label="Search lawyers" onsubmit="return false;">
+        <div class="field">
+          <label for="people-search">Name or keyword</label>
+          <input class="input" type="search" id="people-search" name="q" placeholder="e.g. arbitration, Osei, finance" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="people-practice">Practice</label>
+          <select class="select" id="people-practice" name="practice">
+            <option value="">All practices</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="people-office">Office</label>
+          <select class="select" id="people-office" name="office">
+            <option value="">All offices</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="people-industry">Industry</label>
+          <select class="select" id="people-industry" name="industry">
+            <option value="">All industries</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="results-bar">
+        <strong id="people-count">Loading…</strong>
+        <button class="btn btn--sm btn--ghost" type="button" id="people-reset">Reset filters</button>
+      </div>
+
+      <div class="grid grid--3" id="people-results"></div>
+
+      <p class="notice" style="margin-top:2.5rem">
+        <strong>Prototype data.</strong> Every lawyer shown here is fictional, and the list is held
+        in a JavaScript array in <code>assets/js/data.js</code> rather than in a database. Swapping
+        the array for a <code>fetch()</code> call against a REST endpoint is the only change needed.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="section section--wash section--tight">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Not sure who to ask for?</span>
+        <h2 class="display display--section">Let us point you to the right team</h2>
+        <p class="text-muted">
+          Tell us about the matter and the office closest to it — we will make the introduction.
+        </p>
+        <p style="margin-top:1.5rem"><a class="btn" href="contact.html">Contact us</a></p>
+      </div>
+      <div class="grid grid--2" style="gap:1rem">
+        <div class="tile"><b>45</b><span>Offices in 31 countries</span></div>
+        <div class="tile"><b>2,000+</b><span>Lawyers worldwide</span></div>
+        <div class="tile"><b>8</b><span>Practices</span></div>
+        <div class="tile"><b>8</b><span>Industries</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{{> footer}}
+{{> cookie}}
+{{> dialogs}}

@@ -268,6 +268,11 @@ const PAGE_META = {
     title: 'Contact',
     description: 'Contact CLD Legal Consultant, our offices and our media relations team.',
     bodyClass: 'page-contact'
+  },
+  '404.html': {
+    title: 'Page not found',
+    description: 'The page you asked for is not here.',
+    bodyClass: 'page-404'
   }
 };
 

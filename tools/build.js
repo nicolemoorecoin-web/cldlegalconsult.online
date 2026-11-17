@@ -230,7 +230,7 @@ function applyVars(html, vars) {
 /* --- Site-wide constants ------------------------------------------- */
 const SITE = {
   name: 'CLD Legal Consultant',
-  origin: 'https://www.cldlegalconsult.online',
+  origin: 'https://cldlegalconsult.online',
   phone: '+1 (904) 397-7052',
   email: 'info@cldlegalconsult.online',
   supportEmail: 'support@cldlegalconsult.online',

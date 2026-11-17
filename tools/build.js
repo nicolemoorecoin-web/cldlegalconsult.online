@@ -227,52 +227,86 @@ function applyVars(html, vars) {
 }
 
 /* --- page metadata ------------------------------------------------ */
+/* --- Site-wide constants ------------------------------------------- */
+const SITE = {
+  name: 'CLD Legal Consultant',
+  origin: 'https://cldlegalconsult.online',
+  phone: '+1 (904) 397-7052',
+  email: 'info@cldlegalconsult.online',
+  supportEmail: 'support@cldlegalconsult.online',
+  street: '1000 2nd Ave Ste 2530',
+  city: 'Seattle',
+  region: 'WA',
+  postal: '98104',
+  country: 'US',
+  ogImage: '/assets/img/photos/banner-locations.jpg'
+};
+
 const PAGE_META = {
   'index.html': {
     title: 'Home',
+    path: '/',
     description:
       'CLD Legal Consultant — corporate and commercial legal advice from Seattle, backed by a network of 2,000+ lawyers across 45 offices.',
     bodyClass: 'page-home'
   },
   'services.html': {
     title: 'Services',
+    path: '/services.html',
     description: 'Industries, practices and regions covered by CLD Legal Consultant.',
     bodyClass: 'page-services'
   },
   'people.html': {
     title: 'People',
-    description: 'Search the directory, and read the full profile of Jeff Hughes, Principal Consultant.',
+    path: '/people.html',
+    description:
+      'Search the CLD Legal Consultant directory by name, practice or office to find the right lawyer for your matter.',
     bodyClass: 'page-people'
+  },
+  'jeff-hughes.html': {
+    title: 'Jeff Hughes — Principal Consultant',
+    path: '/jeff-hughes.html',
+    description:
+      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, advising on mergers and acquisitions, private capital and joint ventures.',
+    bodyClass: 'page-people',
+    ogImage: '/assets/img/photos/jeff-hughes.jpg'
   },
   'insights.html': {
     title: 'Insights',
+    path: '/insights.html',
     description: 'Market trends, legal analysis and industry knowledge from across the firm.',
     bodyClass: 'page-insights'
   },
   'locations.html': {
     title: 'Offices',
+    path: '/locations.html',
     description: 'All 45 offices across 31 countries, grouped by region.',
     bodyClass: 'page-locations'
   },
   'careers.html': {
     title: 'Careers',
+    path: '/careers.html',
     description: 'Life at the firm, our values, and how to apply.',
     bodyClass: 'page-careers'
   },
   'about.html': {
     title: 'About Us',
+    path: '/about.html',
     description: 'Our firm, innovation, responsible business and former partners.',
     bodyClass: 'page-about'
   },
   'contact.html': {
     title: 'Contact',
+    path: '/contact.html',
     description: 'Contact CLD Legal Consultant, our offices and our media relations team.',
     bodyClass: 'page-contact'
   },
   '404.html': {
     title: 'Page not found',
+    path: '/404.html',
     description: 'The page you asked for is not here.',
-    bodyClass: 'page-404'
+    bodyClass: 'page-404',
+    noindex: true
   }
 };
 
@@ -280,6 +314,7 @@ const ACTIVE_NAV = {
   'index.html': '',
   'services.html': 'services',
   'people.html': 'people',
+  'jeff-hughes.html': 'people',
   'insights.html': 'insights',
   'locations.html': 'about',
   'careers.html': 'careers',
@@ -287,13 +322,138 @@ const ACTIVE_NAV = {
   'contact.html': ''
 };
 
+/* --- Structured data ----------------------------------------------- */
+function organizationLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LegalService',
+    '@id': SITE.origin + '/#organization',
+    name: SITE.name,
+    url: SITE.origin + '/',
+    logo: SITE.origin + '/assets/img/photos/hero.jpg',
+    image: SITE.origin + SITE.ogImage,
+    description:
+      'Corporate and commercial legal advice from Seattle, backed by a network of 2,000+ lawyers across 45 offices in 31 countries.',
+    telephone: SITE.phone,
+    email: SITE.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.street,
+      addressLocality: SITE.city,
+      addressRegion: SITE.region,
+      postalCode: SITE.postal,
+      addressCountry: SITE.country
+    },
+    areaServed: 'Worldwide',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: SITE.phone,
+        email: SITE.supportEmail,
+        contactType: 'customer support',
+        areaServed: 'Worldwide',
+        availableLanguage: ['English', 'Spanish']
+      }
+    ],
+    employee: { '@id': SITE.origin + '/jeff-hughes.html#person' }
+  };
+}
+
+function personLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': SITE.origin + '/jeff-hughes.html#person',
+    name: 'Jeff Hughes',
+    givenName: 'Jeff',
+    familyName: 'Hughes',
+    jobTitle: 'Principal Consultant',
+    description:
+      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, advising founders, investors and boards on mergers and acquisitions, private capital, joint ventures and technology transactions.',
+    url: SITE.origin + '/jeff-hughes.html',
+    mainEntityOfPage: SITE.origin + '/jeff-hughes.html',
+    image: SITE.origin + '/assets/img/photos/jeff-hughes.jpg',
+    email: 'mailto:jeff.hughes@cldlegalconsult.online',
+    telephone: SITE.phone,
+    worksFor: { '@id': SITE.origin + '/#organization' },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.street,
+      addressLocality: SITE.city,
+      addressRegion: SITE.region,
+      postalCode: SITE.postal,
+      addressCountry: SITE.country
+    },
+    knowsLanguage: ['en', 'es'],
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'University of Washington School of Law' },
+      { '@type': 'CollegeOrUniversity', name: 'University of British Columbia' }
+    ],
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Principal Consultant',
+      occupationLocation: {
+        '@type': 'Country',
+        name: 'United States'
+      }
+    },
+    knowsAbout: [
+      'Mergers and acquisitions',
+      'Private capital transactions',
+      'Joint ventures and strategic alliances',
+      'Corporate governance',
+      'Technology transactions and licensing'
+    ]
+  };
+}
+
+function structuredDataFor(path) {
+  const graph = path === '/jeff-hughes.html'
+    ? [organizationLd(), personLd()]
+    : [organizationLd()];
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 0);
+}
+
+/* --- sitemap and robots -------------------------------------------- */
+function writeSitemap(files) {
+  const today = new Date().toISOString().slice(0, 10);
+  const entries = files
+    .filter((f) => PAGE_META[f] && !PAGE_META[f].noindex)
+    .map((f) => {
+      const m = PAGE_META[f];
+      const priority = m.path === '/' ? '1.0' : (m.path === '/jeff-hughes.html' ? '0.9' : '0.7');
+      return '  <url>\n' +
+        '    <loc>' + SITE.origin + m.path + '</loc>\n' +
+        '    <lastmod>' + today + '</lastmod>\n' +
+        '    <changefreq>weekly</changefreq>\n' +
+        '    <priority>' + priority + '</priority>\n' +
+        '  </url>';
+    })
+    .join('\n');
+
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    entries + '\n' +
+    '</urlset>\n';
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml, 'utf8');
+}
+
+function writeRobots() {
+  const txt = 'User-agent: *\n' +
+    'Allow: /\n' +
+    'Disallow: /tools/\n' +
+    '\n' +
+    'Sitemap: ' + SITE.origin + '/sitemap.xml\n';
+  fs.writeFileSync(path.join(ROOT, 'robots.txt'), txt, 'utf8');
+}
+
 /* --- build -------------------------------------------------------- */
 function build() {
   const files = fs.readdirSync(PAGES).filter((f) => f.endsWith('.html'));
   const written = [];
 
   for (const file of files) {
-    const meta = PAGE_META[file] || { title: 'Page', description: '', bodyClass: '' };
+    const meta = PAGE_META[file] || { title: 'Page', description: '', bodyClass: '', path: '/' + file };
     const active = ACTIVE_NAV[file] || '';
 
     let html = read(path.join(PAGES, file));
@@ -306,6 +466,9 @@ function build() {
       pageClass: '',
       activeNav: active,
       year: String(new Date().getFullYear()),
+      canonicalUrl: SITE.origin + meta.path,
+      ogImage: SITE.origin + (meta.ogImage || SITE.ogImage),
+      structuredData: structuredDataFor(meta.path),
       nav: renderNav(active),
       megaPanels: renderMegaPanels(active),
       drawer: renderDrawer(active),
@@ -313,9 +476,19 @@ function build() {
       officesByRegion: renderOfficesByRegion()
     });
 
+    if (meta.noindex) {
+      html = html.replace(
+        '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">',
+        '<meta name="robots" content="noindex, follow">'
+      );
+    }
+
     fs.writeFileSync(path.join(ROOT, file), html, 'utf8');
     written.push(file);
   }
+
+  writeSitemap(written);
+  writeRobots();
 
   return written;
 }

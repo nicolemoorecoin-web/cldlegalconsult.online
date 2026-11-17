@@ -270,14 +270,14 @@
   /* --- Offices ---------------------------------------------------- */
   var OFFICES = [
     { region: 'americas', city: 'Chicago', address: '155 North Wacker Drive', postal: 'Chicago, IL 60606', phone: '+1 312 555 0187' },
-    { region: 'americas', city: 'Glendale, Arizona', address: '2010 West Camelback Road, Suite 300', postal: 'Glendale, AZ 85301', phone: '+1 623 555 0176' },
+    { region: 'americas', city: 'Arizona', address: '2 North Central Avenue, Suite 1200', postal: 'Phoenix, AZ 85004', phone: '+1 623 555 0176' },
     { region: 'americas', city: 'Houston', address: '1100 Louisiana Street', postal: 'Houston, TX 77002', phone: '+1 713 555 0163' },
     { region: 'americas', city: 'Los Angeles', address: '633 West 5th Street', postal: 'Los Angeles, CA 90071', phone: '+1 213 555 0119' },
     { region: 'americas', city: 'Mexico City', address: 'Paseo de la Reforma 250', postal: 'Ciudad de México 06600', phone: '+52 55 5550 0174' },
     { region: 'americas', city: 'Miami', address: '200 South Biscayne Boulevard', postal: 'Miami, FL 33131', phone: '+1 305 555 0155' },
     { region: 'americas', city: 'New York', address: '1155 Avenue of the Americas', postal: 'New York, NY 10036', phone: '+1 212 555 0100' },
     { region: 'americas', city: 'São Paulo', address: 'Av. Brigadeiro Faria Lima 3477', postal: 'São Paulo 04538-133', phone: '+55 11 5550 0198' },
-    { region: 'americas', city: 'Seattle', address: '1201 Third Avenue, Suite 2200', postal: 'Seattle, WA 98101', phone: '+1 206 555 0142' },
+    { region: 'americas', city: 'Seattle', address: '1000 2nd Ave, Suite 2530', postal: 'Seattle, WA 98104, USA', phone: '+1 206 555 0142' },
     { region: 'americas', city: 'Silicon Valley', address: '2600 Gateway Boulevard', postal: 'Santa Clara, CA 95054', phone: '+1 650 555 0128' },
     { region: 'americas', city: 'Tampa Global Operations Center', address: 'One Tampa City Center', postal: 'Tampa, FL 33602', phone: '+1 813 555 0171' },
 
@@ -331,7 +331,8 @@
       focus: 'Mergers & Acquisitions',
       languages: 'English, Spanish',
       email: 'jeff.hughes@cldlegalconsult.online',
-      phone: '+1 206 555 0142'
+      phone: '+1 (904) 397-7052',
+      profile: 'jeff-hughes.html'
     }
   ];
 
@@ -385,8 +386,23 @@
     { name: 'Asia-Pacific', blurb: 'Nine offices across Asia and Australia.', count: 9 }
   ];
 
+  /* --- Site-wide contact details ------------------------------------ */
+  var SITE = {
+    name: 'CLD Legal Consultant',
+    domain: 'cldlegalconsult.online',
+    url: 'https://cldlegalconsult.online',
+    addressLine1: '1000 2nd Ave Ste 2530',
+    addressLine2: 'Seattle, WA 98104',
+    addressCountry: 'USA',
+    phone: '+1 (904) 397-7052',
+    phoneHref: '+19043977052',
+    email: 'info@cldlegalconsult.online',
+    supportEmail: 'support@cldlegalconsult.online'
+  };
+
   global.WC_DATA = {
     nav: NAV,
+    site: SITE,
     offices: OFFICES,
     lawyers: LAWYERS,
     insights: INSIGHTS,

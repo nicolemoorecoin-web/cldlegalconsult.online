@@ -349,9 +349,6 @@
     var countEl = $('#people-count');
     var reset = $('#people-reset');
     var lawyers = DATA.lawyers;
-    // The biography is read from the page itself, so the profile exists in
-    // exactly one place — the markup a reader actually sees.
-    var profileEl = $('#jeff-hughes');
 
     // Populate the selects from the data so the options can never drift.
     function fill(select, values) {
@@ -369,23 +366,28 @@
     fill(practice, lawyers.map(function (l) { return l.practice; }));
     fill(office, lawyers.map(function (l) { return l.office; }));
 
-    // The searchable text includes the full profile as it appears on the
-    // page, so a search for a matter, a sector or a language surfaces the
-    // right person without the biography being stored twice.
+    // The directory is searched by name. Any part of a name matches, so
+    // "hug", "hughes" and "jeff h" all find the same person.
     function haystack(l) {
-      var bits = [l.name, l.title, l.practice, l.industry, l.office, l.focus, l.languages];
-      if (profileEl) bits.push(profileEl.textContent);
-      return bits.join(' ').toLowerCase();
-    }
-
-    function anchor(name) {
-      return '#' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      return [l.name, l.title, l.practice, l.industry, l.office, l.focus, l.languages]
+        .join(' ')
+        .toLowerCase();
     }
 
     function render() {
       var q = ((search && search.value) || '').trim().toLowerCase();
       var p = (practice && practice.value) || '';
       var o = (office && office.value) || '';
+
+      // Nothing searched and nothing selected: the directory stays empty
+      // rather than showing the whole list.
+      if (!q && !p && !o) {
+        if (countEl) countEl.textContent = 'Search to begin';
+        container.innerHTML =
+          '<p class="empty">Search the directory by name to find a lawyer — a surname, or part ' +
+          'of one, is enough.</p>';
+        return;
+      }
 
       var rows = lawyers.filter(function (l) {
         if (p && l.practice !== p) return false;
@@ -396,7 +398,7 @@
 
       if (countEl) {
         countEl.textContent = rows.length
-          ? rows.length + (rows.length === 1 ? ' profile matches' : ' profiles match') + ' your search'
+          ? rows.length + (rows.length === 1 ? ' lawyer matches' : ' lawyers match') + ' your search'
           : 'No matching lawyer';
       }
 
@@ -409,11 +411,12 @@
       }
 
       container.innerHTML = rows.map(function (l) {
+        var href = l.profile || ('contact.html');
         return '' +
           '<article class="person reveal is-visible">' +
             '<div class="person__avatar" aria-hidden="true">' + esc(initials(l.name)) + '</div>' +
             '<div class="person__body">' +
-              '<h3 class="person__name"><a href="' + anchor(l.name) + '">' + esc(l.name) + '</a></h3>' +
+              '<h3 class="person__name"><a href="' + esc(href) + '">' + esc(l.name) + '</a></h3>' +
               '<p class="person__role">' + esc(l.title) + ' — ' + esc(l.focus) + '</p>' +
               '<div class="person__meta">' +
                 '<span>' + esc(l.practice) + '</span>' +
@@ -446,26 +449,30 @@
      07b  The "Find a lawyer" panel
      ---------------------------------------------------------------- */
   function initFindPanel() {
-    var btn = $('#find-btn');
     var panel = $('#find-panel');
-    if (!btn || !panel) return;
+    var btn = $('#find-btn');
 
-    function setOpen(state) {
-      panel.classList.toggle('is-open', state);
-      btn.setAttribute('aria-expanded', String(state));
-      btn.textContent = state ? 'Close search' : 'Open search';
-      if (state) {
-        var input = $('input', panel);
-        if (input) setTimeout(function () { input.focus(); }, 60);
+    // If a toggle button is present the panel can be opened and closed.
+    if (btn && panel) {
+      function setOpen(state) {
+        panel.classList.toggle('is-open', state);
+        btn.setAttribute('aria-expanded', String(state));
+        btn.textContent = state ? 'Close search' : 'Open search';
+        if (state) {
+          var field = $('input', panel);
+          if (field) setTimeout(function () { field.focus(); }, 60);
+        }
       }
+      btn.addEventListener('click', function () {
+        setOpen(!panel.classList.contains('is-open'));
+      });
     }
 
-    btn.addEventListener('click', function () {
-      setOpen(!panel.classList.contains('is-open'));
-    });
-
-    // Arriving from the homepage's "Find a lawyer" link opens the panel.
-    if (window.location.hash === '#find') setOpen(true);
+    // Arriving from a "Find a lawyer" link puts the cursor in the box.
+    if (window.location.hash === '#find') {
+      var input = $('#people-search');
+      if (input) setTimeout(function () { input.focus(); }, 120);
+    }
   }
 
   /* ----------------------------------------------------------------

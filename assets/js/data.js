@@ -35,10 +35,10 @@
         {
           heading: 'By practice',
           links: [
-            { label: 'Corporate', href: 'services.html#practices' },
-            { label: 'Dispute Resolution', href: 'services.html#practices' },
-            { label: 'Finance', href: 'services.html#practices' },
-            { label: 'Tax', href: 'services.html#practices' }
+            { label: 'Criminal Defense', href: 'services.html#practices' },
+            { label: 'Civil Litigation', href: 'services.html#practices' },
+            { label: 'Family Law', href: 'services.html#practices' },
+            { label: 'Immigration Law', href: 'services.html#practices' }
           ]
         },
         {
@@ -61,36 +61,36 @@
       featured: {
         kicker: 'Featured',
         items: [
-          { label: 'Energy', href: 'services.html#industries' },
-          { label: 'Infrastructure', href: 'services.html#industries' },
-          { label: 'Private Capital', href: 'services.html#industries' },
-          { label: 'Technology', href: 'services.html#industries' }
+          { label: 'Drug Offences', href: 'services.html#cases' },
+          { label: 'Search and Seizure', href: 'services.html#cases' },
+          { label: 'Extradition', href: 'services.html#cases' },
+          { label: 'Sentencing & Appeals', href: 'services.html#cases' }
         ]
       },
       columns: [
         {
           heading: 'Our services',
           links: [
-            { label: 'Industry', href: 'services.html#industries' },
-            { label: 'Practice', href: 'services.html#practices' },
-            { label: 'Region', href: 'services.html#regions' }
+            { label: 'Case types', href: 'services.html#cases' },
+            { label: 'Practices', href: 'services.html#practices' },
+            { label: 'Regions', href: 'services.html#regions' }
           ]
         },
         {
           heading: 'Featured',
           links: [
-            { label: 'Energy', href: 'services.html#industries' },
-            { label: 'Infrastructure', href: 'services.html#industries' },
-            { label: 'Private Capital', href: 'services.html#industries' },
-            { label: 'Technology', href: 'services.html#industries' }
+            { label: 'Drug Offences', href: 'services.html#cases' },
+            { label: 'Search and Seizure', href: 'services.html#cases' },
+            { label: 'Extradition', href: 'services.html#cases' },
+            { label: 'Sentencing & Appeals', href: 'services.html#cases' }
           ]
         },
         {
           heading: 'Key contacts',
           links: [
-            { label: 'M&A', href: 'services.html#practices' },
-            { label: 'Project Finance', href: 'services.html#practices' },
-            { label: 'International Arbitration', href: 'services.html#practices' },
+            { label: 'Criminal Defense', href: 'services.html#practices' },
+            { label: 'Civil Litigation', href: 'services.html#practices' },
+            { label: 'Family Law', href: 'services.html#practices' },
             { label: 'Banking & Finance', href: 'services.html#practices' }
           ]
         }
@@ -105,9 +105,9 @@
       featured: {
         kicker: 'Our series',
         items: [
-          { label: 'Global Market Outlook', href: 'insights.html#series' },
-          { label: 'Partner Perspectives', href: 'insights.html#series' },
-          { label: 'Cross-Sector Briefings', href: 'insights.html#series' },
+          { label: 'The Defence Outlook', href: 'insights.html#series' },
+          { label: 'From the First Hour', href: 'insights.html#series' },
+          { label: 'Case Review', href: 'insights.html#series' },
           { label: 'Insights', href: 'insights.html#latest' }
         ]
       },
@@ -115,11 +115,11 @@
         {
           heading: 'Our series',
           links: [
-            { label: 'Global Market Outlook', href: 'insights.html#series' },
-            { label: 'Partner Perspectives', href: 'insights.html#series' },
-            { label: 'Cross-Sector Briefings', href: 'insights.html#series' },
-            { label: 'Deal Explorer', href: 'insights.html#series' },
-            { label: 'Debt Explorer', href: 'insights.html#series' }
+            { label: 'The Defence Outlook', href: 'insights.html#series' },
+            { label: 'From the First Hour', href: 'insights.html#series' },
+            { label: 'Case Review', href: 'insights.html#series' },
+            { label: 'Case Files', href: 'insights.html#series' },
+            { label: 'Case Files', href: 'insights.html#series' }
           ]
         },
         {
@@ -339,36 +339,45 @@
 
   /* --- Insights --------------------------------------------------- */
   var INSIGHTS = [
-    { type: 'alerts', title: 'Cross-border data transfers: what the new standard means for in-house teams', date: '2026-11-04', read: 9, practice: 'Technology', summary: 'A practical walkthrough of the revised transfer mechanism, with a checklist for mapping data flows in three weeks.' },
-    { type: 'case-studies', title: 'Financing a European space launch platform', date: '2026-10-28', read: 12, practice: 'Finance', summary: 'How a syndicate of lenders structured a multi-jurisdictional financing for a launch services business.' },
-    { type: 'insights', title: 'The next chapter of infrastructure finance', date: '2026-10-21', read: 7, practice: 'Finance', summary: 'Four structural shifts we expect to see in project finance over the next eighteen months.' },
-    { type: 'podcasts', title: 'Financing the critical minerals race', date: '2026-10-15', read: 42, practice: 'Energy', summary: 'A conversation on how capital is being allocated to securing supply of the minerals the transition depends on.' },
-    { type: 'videos', title: 'The global reach of the AI Act', date: '2026-10-09', read: 18, practice: 'Technology', summary: 'Partners from three offices discuss what the Act means for global operating models.' },
-    { type: 'stories', title: 'Advice to my younger self', date: '2026-10-02', read: 6, practice: 'Corporate', summary: 'Six partners on the advice they would give themselves at the start of their careers.' },
-    { type: 'events', title: 'Webinar: refinancing in a higher-rate world', date: '2026-09-25', read: 55, practice: 'Finance', summary: 'A live discussion on documentation, hedging and lender expectations in the current market.' },
-    { type: 'alerts', title: 'Three strikes and three strategies', date: '2026-09-18', read: 8, practice: 'Dispute Resolution', summary: 'What the recent judgment means for enforcement strategy in commercial disputes.' },
-    { type: 'insights', title: 'Global market outlook: private capital', date: '2026-09-11', read: 15, practice: 'Private Capital', summary: 'Deal volumes, structures and the terms that are holding up under pressure.' },
-    { type: 'case-studies', title: 'A carve-out that stayed on schedule', date: '2026-09-04', read: 10, practice: 'Corporate', summary: 'Lessons from sequencing a complex carve-out across eleven jurisdictions.' },
-    { type: 'podcasts', title: 'Building a market for critical minerals', date: '2026-08-28', read: 38, practice: 'Energy', summary: 'Participants on the policy signals that will move or stall the projects in the pipeline.' },
-    { type: 'insights', title: 'Taxing digital services: a comparative survey', date: '2026-08-20', read: 13, practice: 'Tax', summary: 'A country-by-country look at the direct and indirect taxes now reaching digital businesses.' },
-    { type: 'events', title: 'Panel: arbitration under the new rules', date: '2026-08-14', read: 48, practice: 'Dispute Resolution', summary: 'Practitioners compare how the revised rules changed hearing preparation.' },
-    { type: 'stories', title: 'The team behind the deal: New York', date: '2026-08-06', read: 5, practice: 'Corporate', summary: 'A look inside the group that closed the firm\'s largest M&A transaction of the year.' },
-    { type: 'videos', title: 'Turning climate commitments into compliance', date: '2026-07-30', read: 21, practice: 'Dispute Resolution', summary: 'What disclosure obligations mean for claims brought against corporate transition plans.' },
-    { type: 'alerts', title: 'Supply chain disruption: allocating new risk', date: '2026-07-23', read: 7, practice: 'Corporate', summary: 'How to read the latest force majeure and change-in-law provisions in long-term supply contracts.' }
+    { type: 'alerts', title: 'The first hour: what happens before the interview begins', date: '2026-11-04', read: 9, practice: 'Criminal Defense', summary: 'What a lawyer can and cannot do in the first hours after an arrest, and why that window decides more than the trial does.' },
+    { type: 'case-studies', title: 'Securing the dismissal of a possession charge at an airport', date: '2026-10-28', read: 12, practice: 'Criminal Defense', summary: 'How an unauthorised search of checked baggage led to the charge being dropped before an information was laid.' },
+    { type: 'insights', title: 'Sentencing after the conviction', date: '2026-10-21', read: 7, practice: 'Criminal Defense', summary: 'Four questions that matter at sentencing, and the mitigation that should be prepared long before the verdict.' },
+    { type: 'podcasts', title: 'When the search was never authorised', date: '2026-10-15', read: 42, practice: 'Criminal Defense', summary: 'A discussion on the exclusion of evidence obtained where the authority to search was absent or expired.' },
+    { type: 'videos', title: 'Cross-examining a cooperating witness', date: '2026-10-09', read: 18, practice: 'Criminal Defense', summary: 'How a defence team puts the prosecution\'s own witness to the parts of their account that do not fit.' },
+    { type: 'stories', title: 'Advice to my younger self', date: '2026-10-02', read: 6, practice: 'Criminal Defense', summary: 'Six practitioners on the advice they would give themselves in their first year of practice.' },
+    { type: 'events', title: 'Webinar: bail, remands and the first eight weeks', date: '2026-09-25', read: 55, practice: 'Criminal Defense', summary: 'A live discussion on what a defendant can realistically achieve before a trial, and how to plan for it.' },
+    { type: 'alerts', title: 'Digital evidence: what a device can give away', date: '2026-09-18', read: 8, practice: 'Cybercrime', summary: 'What is recoverable from a phone or a server, how it is lawfully obtained, and how it is challenged.' },
+    { type: 'insights', title: 'The defence outlook: what the next year holds', date: '2026-09-11', read: 15, practice: 'Criminal Defense', summary: 'The shifts in charging, disclosure and sentencing we expect to see across our practice areas.' },
+    { type: 'case-studies', title: 'An extradition request that was refused', date: '2026-09-04', read: 10, practice: 'Extradition', summary: 'Why the assurance of a fair trial was not enough, and what the court needed to see before it would surrender a person.' },
+    { type: 'podcasts', title: 'Pro bono, and why it still matters', date: '2026-08-28', read: 38, practice: 'Public Law', summary: 'On the case for a duty of care in the ordinary case, and what a defence practice owes the people it cannot charge for.' },
+    { type: 'insights', title: 'Money laundering in a domestic case', date: '2026-08-20', read: 13, practice: 'Criminal Defense', summary: 'How the financial layer of a case widens the charges, and how the confiscation proceedings that follow are won.' },
+    { type: 'events', title: 'Panel: when the evidence is digital', date: '2026-08-14', read: 48, practice: 'Cybercrime', summary: 'Practitioners compare how digital evidence is admitted, disclosed and challenged across jurisdictions.' },
+    { type: 'stories', title: 'The duty line: Seattle', date: '2026-08-06', read: 5, practice: 'Criminal Defense', summary: 'A look inside the team that answers when someone is arrested in the middle of the night.' },
+    { type: 'videos', title: 'Preparing a case as though it will be heard by a jury', date: '2026-07-30', read: 21, practice: 'Criminal Defense', summary: 'Why a matter prepared for trial is a matter that settles well, and what that preparation looks like.' },
+    { type: 'alerts', title: 'Breach of bail: the consequences and the way back', date: '2026-07-23', read: 7, practice: 'Criminal Defense', summary: 'What a missed hearing does to a case, and the steps that keep a defendant at liberty while it is addressed.' }
   ];
 
   /* --- Services --------------------------------------------------- */
-  var INDUSTRIES = [
-    { name: 'Energy', blurb: 'Advisory across upstream, power, renewables and the energy transition.', count: 42 },
-    { name: 'Infrastructure', blurb: 'Project development, finance and disputes in infrastructure markets.', count: 51 },
-    { name: 'Private Capital', blurb: 'Structuring, funding and exit for private equity and credit investors.', count: 63 },
-    { name: 'Technology', blurb: 'Counsel for the companies defining the next decade of technology.', count: 38 },
-    { name: 'Life Sciences', blurb: 'Regulatory, transactional and IP work across the sector.', count: 26 },
-    { name: 'Financial Institutions', blurb: 'Regulatory and transaction work for banks and insurers.', count: 31 },
-    { name: 'Consumer & Retail', blurb: 'Brand, supply chain and digital commerce for consumer businesses.', count: 22 },
-    { name: 'Real Estate', blurb: 'Acquisition, development, finance and leasing across major markets.', count: 18 }
+  /* --- Case types ----------------------------------------------------
+     The matters the practice actually acts on. These drive the
+     "Case types" panel on the services page. */
+  var CASE_TYPES = [
+    { name: 'Drug Offences', blurb: 'Trafficking, conspiracy and possession, and the defences that apply at each stage.', count: 64 },
+    { name: 'Airport & Border Cases', blurb: 'Interceptions at airports and ports of entry, and the searches that precede them.', count: 41 },
+    { name: 'Search and Seizure', blurb: 'Whether the search was lawful, and what follows for the case if it was not.', count: 57 },
+    { name: 'White-Collar & Fraud', blurb: 'Fraud, embezzlement and regulatory charges brought against individuals.', count: 39 },
+    { name: 'Weapons & Violent Offences', blurb: 'Charges involving firearms and violence, and the mitigation that follows.', count: 33 },
+    { name: 'Homicide & Manslaughter', blurb: 'The most serious allegations, and the preparation they require.', count: 18 },
+    { name: 'Sexual Offences', blurb: 'Representations where consent, evidence and cross-examination are decisive.', count: 26 },
+    { name: 'Cybercrime & Online Fraud', blurb: 'Computer misuse, online fraud, and the evidence held in servers.', count: 31 },
+    { name: 'Domestic Violence & Family', blurb: 'Protective orders, residency and matters involving children.', count: 44 },
+    { name: 'Driving Offences', blurb: 'Driving without a licence, dangerous driving and drink-driving defences.', count: 52 },
+    { name: 'Money Laundering & Proceeds of Crime', blurb: 'The financial layer of a case, and the confiscation proceedings that follow.', count: 22 },
+    { name: 'Extradition & Transfer', blurb: 'Requests to surrender a person, and the defences to them.', count: 17 },
+    { name: 'Public Law & Inquests', blurb: 'Article 2 investigations and public-interest proceedings.', count: 14 },
+    { name: 'Sentencing & Appeals', blurb: 'Mitigation at sentencing, and appeals after a conviction.', count: 47 },
+    { name: 'Breach of Bail & Recall', blurb: 'The consequences of a missed hearing, and the way back.', count: 29 }
   ];
-
   var PRACTICES = [
     { name: 'Corporate and Business Law', blurb: 'Formation, governance, shareholder arrangements and day-to-day business advice.', count: 94 },
     { name: 'International Law', blurb: 'Cross-border transactions, trade, sanctions and foreign investment.', count: 41 },
@@ -413,7 +422,7 @@
     offices: OFFICES,
     lawyers: LAWYERS,
     insights: INSIGHTS,
-    industries: INDUSTRIES,
+    caseTypes: CASE_TYPES,
     practices: PRACTICES,
     regions: REGIONS
   };

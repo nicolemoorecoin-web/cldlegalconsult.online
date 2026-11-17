@@ -34,83 +34,20 @@
           <h2 class="display display--section">Browse our services</h2>
         </div>
         <p>
-          Start from the industry you operate in, the type of work you need, or the region your
+          Start from the type of case you are facing, the area of law you need, or the region your
           matter touches.
         </p>
       </div>
 
       <div class="chips" role="tablist" aria-label="Service categories" style="margin-bottom:2.5rem">
-        <button class="chip" type="button" role="tab" id="tab-industries" data-service-tab="industries" aria-selected="true" aria-controls="panel-industries">Industries</button>
+        <button class="chip" type="button" role="tab" id="tab-cases" data-service-tab="cases" aria-selected="true" aria-controls="panel-cases">Case types</button>
         <button class="chip" type="button" role="tab" id="tab-practices" data-service-tab="practices" aria-selected="false" aria-controls="panel-practices">Practices</button>
         <button class="chip" type="button" role="tab" id="tab-regions" data-service-tab="regions" aria-selected="false" aria-controls="panel-regions">Regions</button>
       </div>
 
-      <div id="panel-industries" role="tabpanel" aria-labelledby="tab-industries" data-service-panel="industries">
+      <div id="panel-cases" role="tabpanel" aria-labelledby="tab-cases" data-service-panel="cases">
         <div class="grid grid--3">
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Energy</h3>
-              <p class="card__text">Advisory across upstream, power, renewables and the energy transition.</p>
-              <div class="card__meta"><span>42 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Infrastructure</h3>
-              <p class="card__text">Project development, finance and disputes in infrastructure markets.</p>
-              <div class="card__meta"><span>51 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Private capital</h3>
-              <p class="card__text">Structuring, funding and exit for private equity and credit investors.</p>
-              <div class="card__meta"><span>63 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Technology</h3>
-              <p class="card__text">Counsel for the companies defining the next decade of technology.</p>
-              <div class="card__meta"><span>38 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Life sciences</h3>
-              <p class="card__text">Regulatory, transactional and intellectual property work across the sector.</p>
-              <div class="card__meta"><span>26 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Financial institutions</h3>
-              <p class="card__text">Regulatory and transaction work for banks, insurers and asset managers.</p>
-              <div class="card__meta"><span>31 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Consumer &amp; retail</h3>
-              <p class="card__text">Brand, supply chain and digital commerce for consumer businesses.</p>
-              <div class="card__meta"><span>22 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
-          <article class="card reveal">
-            <div class="card__body">
-              <p class="card__kicker">Industry</p>
-              <h3 class="card__title">Real estate</h3>
-              <p class="card__text">Acquisition, development, finance and leasing across major markets.</p>
-              <div class="card__meta"><span>18 lawyers</span><a href="people.html">Explore</a></div>
-            </div>
-          </article>
+          {{caseTypeCards}}
         </div>
       </div>
 
@@ -161,7 +98,7 @@
         </div>
       </div>
       <div class="grid grid--4">
-        <div class="tile reveal"><b>4</b><span>Featured sectors we work in hardest</span></div>
+        <div class="tile reveal"><b>4</b><span>Case types we act on most</span></div>
         <div class="tile reveal"><b>45</b><span>Offices coordinating the work</span></div>
         <div class="tile reveal"><b>31</b><span>Countries covered without local counsel</span></div>
         <div class="tile reveal"><b>1</b><span>Firm, one integrated team</span></div>

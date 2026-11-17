@@ -123,9 +123,9 @@ function renderFooterColumns() {
     {
       heading: 'Insights',
       links: [
-        { label: 'Global Market Outlook', href: 'insights.html#series' },
-        { label: 'Partner Perspectives', href: 'insights.html#series' },
-        { label: 'Cross-Sector Briefings', href: 'insights.html#series' },
+        { label: 'The Defence Outlook', href: 'insights.html#series' },
+        { label: 'From the First Hour', href: 'insights.html#series' },
+        { label: 'Case Review', href: 'insights.html#series' },
         { label: 'Insights', href: 'insights.html' }
       ]
     },
@@ -333,7 +333,7 @@ function organizationLd() {
     logo: SITE.origin + '/assets/img/photos/hero.jpg',
     image: SITE.origin + SITE.ogImage,
     description:
-      'Corporate and commercial legal advice from Seattle, backed by a network of 2,000+ lawyers across 45 offices in 31 countries.',
+      'Legal advice from Seattle — criminal defence, disputes, business and family matters — backed by a network of 2,000+ lawyers across 45 offices in 31 countries.',
     telephone: SITE.phone,
     email: SITE.email,
     address: {
@@ -466,6 +466,23 @@ function renderPracticeCards() {
     .join('\n');
 }
 
+/* --- Case type cards ---------------------------------------------- */
+function renderCaseTypeCards() {
+  return data.caseTypes
+    .map((c) =>
+      '          <article class="card reveal">\n' +
+      '            <div class="card__body">\n' +
+      '              <p class="card__kicker">Case type</p>\n' +
+      '              <h3 class="card__title">' + escapeAttr(c.name) + '</h3>\n' +
+      '              <p class="card__text">' + escapeAttr(c.blurb) + '</p>\n' +
+      '              <div class="card__meta"><span>' + c.count +
+      ' matters</span><a href="people.html">Explore</a></div>\n' +
+      '            </div>\n' +
+      '          </article>'
+    )
+    .join('\n');
+}
+
 /* --- build -------------------------------------------------------- */
 function build() {
   const files = fs.readdirSync(PAGES).filter((f) => f.endsWith('.html'));
@@ -495,7 +512,8 @@ function build() {
       drawer: renderDrawer(active),
       footerColumns: renderFooterColumns(),
       officesByRegion: renderOfficesByRegion(),
-      practiceCards: renderPracticeCards()
+      practiceCards: renderPracticeCards(),
+      caseTypeCards: renderCaseTypeCards()
     });
 
     if (meta.noindex) {

@@ -30,7 +30,7 @@ No dependencies are required. Node is used only for the optional build step and 
 | Page | File | What it demonstrates |
 |---|---|---|
 | Home | `index.html` | Hero, stat band, split feature sections, card grids, CTA band |
-| Services | `services.html` | Tabbed Industries / Practices / Regions, FAQ accordion |
+| Services | `services.html` | Tabbed Case types / Practices / Regions, FAQ accordion |
 | People | `people.html` | The "Find a lawyer" directory — searches by name |
 | Jeff Hughes | `jeff-hughes.html` | The principal's full profile, with `Person` structured data |
 | Insights | `insights.html` | Filterable content list with URL-synced state, newsletter form |
@@ -60,6 +60,13 @@ The two filter dropdowns carry the full lists rather than only what the director
 hold: **fifteen practices** and **all forty-five offices**. Both come from
 `assets/js/data.js`, so adding a practice or an office updates the services page, the
 directory filters and the footer office list in one edit.
+
+The services page has three tabs, and all three come from the same file: **Case types**
+(fifteen — drug offences, airport and border cases, search and seizure, white-collar and
+fraud, weapons and violent offences, homicide and manslaughter, sexual offences, cybercrime,
+domestic violence and family, driving offences, money laundering, extradition, public law
+and inquests, sentencing and appeals, breach of bail), **Practices** (the fifteen areas of
+law above) and **Regions**.
 
 The site's firm-level figures (2,000+ lawyers across 45 offices in 31 countries) describe
 the **network** the practice draws on, not its headcount.

@@ -368,12 +368,18 @@
     fill(practice, (DATA.practices || []).map(function (p) { return p.name; }));
     fill(office, (DATA.offices || []).map(function (o) { return o.city; }));
 
-    // The directory is searched by name. Any part of a name matches, so
-    // "hug", "hughes" and "jeff h" all find the same person.
-    function haystack(l) {
-      return [l.name, l.title, l.practice, l.industry, l.office, l.focus, l.languages]
-        .join(' ')
-        .toLowerCase();
+    // The directory is searched by NAME. A lawyer appears because their name
+    // matches - not because their practice area, office or focus happens to
+    // share a word with the query. Every word in the query must be the
+    // start of a word in the name, so "jeff", "hughes", "hug" and the
+    // initials "j h" all find the same person, and nothing else does.
+    function nameMatches(l, q) {
+      var words = l.name.toLowerCase().split(/\s+/);
+      var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+      if (!terms.length) return true;
+      return terms.every(function (t) {
+        return words.some(function (w) { return w.indexOf(t) === 0; });
+      });
     }
 
     function render() {
@@ -395,7 +401,7 @@
         if (p && l.practice !== p) return false;
         if (o && l.office !== o) return false;
         if (!q) return true;
-        return haystack(l).indexOf(q) !== -1;
+        return nameMatches(l, q);
       });
 
       if (countEl) {

@@ -43,8 +43,10 @@ No dependencies are required. Node is used only for the optional build step and 
 ### The directory
 
 `people.html` is a **search, not a list**. It starts empty — "Search to begin" — and a
-lawyer appears only when a name matches, so typing `hug`, `hughes` or `jeff h` surfaces
-Jeff Hughes and links to his profile. Nothing is shown by default.
+lawyer appears only when their **name** matches, so `jeff`, `hughes`, `hug` and the initials
+`j h` all surface Jeff Hughes and link to his profile, while `criminal`, `seattle` or `drug`
+return nothing. A lawyer is never surfaced by their practice area, office or focus; those
+are separate, explicit dropdown filters.
 
 The principal's full profile — biography, focus areas, eight matters handled, the matter
 currently live, education, admissions, recognition, publications, speaking commitments and
@@ -62,11 +64,11 @@ hold: **fifteen practices** and **all forty-five offices**. Both come from
 directory filters and the footer office list in one edit.
 
 The services page has three tabs, and all three come from the same file: **Case types**
-(fifteen — drug offences, airport and border cases, search and seizure, white-collar and
-fraud, weapons and violent offences, homicide and manslaughter, sexual offences, cybercrime,
-domestic violence and family, driving offences, money laundering, extradition, public law
-and inquests, sentencing and appeals, breach of bail), **Practices** (the fifteen areas of
-law above) and **Regions**.
+(fifteen — criminal defence, drug and contraband offences, search and seizure, white-collar
+and fraud, violence and homicide, domestic violence and protection, civil litigation,
+employment disputes, immigration, business and corporate, contract and commercial, real
+estate and property, family law and estate planning, tax and regulatory, extradition and
+cross-border), **Practices** (the fifteen areas of law above) and **Regions**.
 
 The site's firm-level figures (2,000+ lawyers across 45 offices in 31 countries) describe
 the **network** the practice draws on, not its headcount.

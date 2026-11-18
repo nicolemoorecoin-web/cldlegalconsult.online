@@ -264,10 +264,10 @@ const PAGE_META = {
     bodyClass: 'page-people'
   },
   'jeff-hughes.html': {
-    title: 'Jeff Hughes — Criminal Defence',
+    title: 'Jeff Hughes — Criminal Defense Attorney',
     path: '/jeff-hughes.html',
     description:
-      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, defending clients in criminal cases — drug offences, airport and border cases, extradition, sentencing and appeals.',
+      'Jeff Hughes is a criminal defense attorney and the founder of CLD Legal Consultant in Seattle, representing individuals facing serious criminal charges, complex investigations and high-stakes legal proceedings.',
     bodyClass: 'page-people',
     ogImage: '/assets/img/photos/jeff-hughes.jpg'
   },
@@ -365,17 +365,24 @@ function personLd() {
     '@type': 'Person',
     '@id': SITE.origin + '/jeff-hughes.html#person',
     name: 'Jeff Hughes',
-    alternateName: 'Jeffrey A. Hughes',
+    alternateName: ['Jeffrey A. Hughes', 'Jeff Hughes CLD Legal Consultant', 'Jeff Hughes CLD'],
     givenName: 'Jeff',
     familyName: 'Hughes',
-    jobTitle: 'Principal Consultant, Criminal Defense',
+    jobTitle: 'Criminal Defense Attorney | Founder, CLD Legal Consultant',
     description:
-      'Jeff Hughes is the Principal Consultant at CLD Legal Consultant, a criminal defence lawyer representing clients in drug offences, airport and border cases, extradition, white-collar charges, sentencing and appeals.',
+      'Jeff Hughes is a criminal defense attorney and the founder of CLD Legal Consultant in Seattle. He represents individuals facing serious criminal charges, complex investigations and high-stakes legal proceedings, and has over eighteen years of legal experience.',
+    disambiguatingDescription:
+      'Criminal defense attorney and founder of CLD Legal Consultant, a legal consultancy based in Seattle.',
     url: SITE.origin + '/jeff-hughes.html',
     mainEntityOfPage: SITE.origin + '/jeff-hughes.html',
     image: SITE.origin + '/assets/img/photos/jeff-hughes.jpg',
     email: 'mailto:jeff.hughes@cldlegalconsult.online',
-    worksFor: { '@id': SITE.origin + '/#organization' },
+    worksFor: {
+      '@type': 'Organization',
+      '@id': SITE.origin + '/#organization',
+      name: 'CLD Legal Consultant',
+      alternateName: 'CLD'
+    },
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.street,
@@ -391,10 +398,10 @@ function personLd() {
     ],
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Principal Consultant',
+      name: 'Criminal Defense Attorney',
       occupationLocation: {
-        '@type': 'Country',
-        name: 'United States'
+        '@type': 'Place',
+        name: 'Seattle, Washington, United States'
       }
     },
     knowsAbout: [

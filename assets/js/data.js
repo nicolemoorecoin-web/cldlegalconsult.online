@@ -18,6 +18,7 @@
       featured: {
         kicker: 'Featured content',
         items: [
+          { label: 'Jeff Hughes', href: 'jeff-hughes.html' },
           { label: 'Insights', href: 'insights.html' },
           { label: 'Newsroom', href: 'insights.html#newsroom' },
           { label: 'Our Firm', href: 'about.html' }
@@ -324,11 +325,11 @@
   var LAWYERS = [
     {
       name: 'Jeff Hughes',
-      title: 'Principal Consultant',
+      title: 'Criminal Defense Attorney',
       practice: 'Criminal Defense',
       industry: 'Litigation',
       office: 'Seattle',
-      focus: 'Drug Offences & Airport Cases',
+      focus: 'Founder, CLD Legal Consultant',
       languages: 'English, Spanish',
       email: 'jeff.hughes@cldlegalconsult.online',
       photo: 'assets/img/photos/tinyjeff.jpg',
@@ -339,22 +340,22 @@
 
   /* --- Insights --------------------------------------------------- */
   var INSIGHTS = [
-    { type: 'alerts', title: 'The first hour: what happens before the interview begins', date: '2026-11-04', read: 9, practice: 'Criminal Defense', summary: 'What a lawyer can and cannot do in the first hours after an arrest, and why that window decides more than the trial does.' },
-    { type: 'case-studies', title: 'Securing the dismissal of a possession charge at an airport', date: '2026-10-28', read: 12, practice: 'Criminal Defense', summary: 'How an unauthorised search of checked baggage led to the charge being dropped before an information was laid.' },
+    { type: 'alerts', title: 'The first hour: what a lawyer should do after an arrest', date: '2026-11-04', read: 9, practice: 'Criminal Defense', summary: 'What a lawyer can and cannot do in the first hours after an arrest, and why that window decides more than the trial does.' },
+    { type: 'case-studies', title: 'Securing the dismissal of a possession charge', date: '2026-10-28', read: 12, practice: 'Criminal Defense', summary: 'How an unauthorised search led to a charge being dropped before an information was ever laid.' },
     { type: 'insights', title: 'Sentencing after the conviction', date: '2026-10-21', read: 7, practice: 'Criminal Defense', summary: 'Four questions that matter at sentencing, and the mitigation that should be prepared long before the verdict.' },
     { type: 'podcasts', title: 'When the search was never authorised', date: '2026-10-15', read: 42, practice: 'Criminal Defense', summary: 'A discussion on the exclusion of evidence obtained where the authority to search was absent or expired.' },
     { type: 'videos', title: 'Cross-examining a cooperating witness', date: '2026-10-09', read: 18, practice: 'Criminal Defense', summary: 'How a defence team puts the prosecution\'s own witness to the parts of their account that do not fit.' },
-    { type: 'stories', title: 'Advice to my younger self', date: '2026-10-02', read: 6, practice: 'Criminal Defense', summary: 'Six practitioners on the advice they would give themselves in their first year of practice.' },
-    { type: 'events', title: 'Webinar: bail, remands and the first eight weeks', date: '2026-09-25', read: 55, practice: 'Criminal Defense', summary: 'A live discussion on what a defendant can realistically achieve before a trial, and how to plan for it.' },
+    { type: 'stories', title: 'Advice to my younger self', date: '2026-10-02', read: 6, practice: 'Corporate', summary: 'Six practitioners on the advice they would give themselves in their first year of practice.' },
+    { type: 'insights', title: 'Contract disputes: what to do in the first fortnight', date: '2026-09-25', read: 8, practice: 'Civil Litigation', summary: 'The steps that keep a dispute winnable — and the letters that make it unwinnable — before a solicitor is even instructed.' },
     { type: 'alerts', title: 'Digital evidence: what a device can give away', date: '2026-09-18', read: 8, practice: 'Cybercrime', summary: 'What is recoverable from a phone or a server, how it is lawfully obtained, and how it is challenged.' },
-    { type: 'insights', title: 'The defence outlook: what the next year holds', date: '2026-09-11', read: 15, practice: 'Criminal Defense', summary: 'The shifts in charging, disclosure and sentencing we expect to see across our practice areas.' },
+    { type: 'insights', title: 'The defence outlook: what the next year holds', date: '2026-09-11', read: 15, practice: 'Criminal Defense', summary: 'The shifts in charging, disclosure and sentencing we expect to see across the matters we take on.' },
     { type: 'case-studies', title: 'An extradition request that was refused', date: '2026-09-04', read: 10, practice: 'Extradition', summary: 'Why the assurance of a fair trial was not enough, and what the court needed to see before it would surrender a person.' },
-    { type: 'podcasts', title: 'Pro bono, and why it still matters', date: '2026-08-28', read: 38, practice: 'Public Law', summary: 'On the case for a duty of care in the ordinary case, and what a defence practice owes the people it cannot charge for.' },
-    { type: 'insights', title: 'Money laundering in a domestic case', date: '2026-08-20', read: 13, practice: 'Criminal Defense', summary: 'How the financial layer of a case widens the charges, and how the confiscation proceedings that follow are won.' },
-    { type: 'events', title: 'Panel: when the evidence is digital', date: '2026-08-14', read: 48, practice: 'Cybercrime', summary: 'Practitioners compare how digital evidence is admitted, disclosed and challenged across jurisdictions.' },
-    { type: 'stories', title: 'The duty line: Seattle', date: '2026-08-06', read: 5, practice: 'Criminal Defense', summary: 'A look inside the team that answers when someone is arrested in the middle of the night.' },
-    { type: 'videos', title: 'Preparing a case as though it will be heard by a jury', date: '2026-07-30', read: 21, practice: 'Criminal Defense', summary: 'Why a matter prepared for trial is a matter that settles well, and what that preparation looks like.' },
-    { type: 'alerts', title: 'Breach of bail: the consequences and the way back', date: '2026-07-23', read: 7, practice: 'Criminal Defense', summary: 'What a missed hearing does to a case, and the steps that keep a defendant at liberty while it is addressed.' }
+    { type: 'podcasts', title: 'Pro bono, and why it still matters', date: '2026-08-28', read: 38, practice: 'Public Law', summary: 'On the case for a duty of care in the ordinary case, and what a practice owes the people it cannot charge for.' },
+    { type: 'alerts', title: 'Dismissal, and the first week after it', date: '2026-08-20', read: 9, practice: 'Employment Law', summary: 'The deadlines that run from the day a person is told, and the decisions that cannot be taken back later.' },
+    { type: 'case-studies', title: 'Residency appeals: why the refusal is rarely the end', date: '2026-08-14', read: 10, practice: 'Immigration Law', summary: 'What an unsuccessful residency application can still be used for, and how to prepare the next one from day one.' },
+    { type: 'events', title: 'Panel: when the evidence is digital', date: '2026-08-06', read: 48, practice: 'Cybercrime', summary: 'Practitioners compare how digital evidence is admitted, disclosed and challenged across jurisdictions.' },
+    { type: 'insights', title: 'Inheritance without a will', date: '2026-07-30', read: 7, practice: 'Family Law', summary: 'What actually happens to an estate when nobody has written a will, and the two questions worth answering now.' },
+    { type: 'events', title: 'Reading a commercial lease before you sign it', date: '2026-07-23', read: 45, practice: 'Real Estate Law', summary: 'The clauses that decide what a tenancy is really worth, and why they are always in the middle of the document.' }
   ];
 
   /* --- Services --------------------------------------------------- */
@@ -362,21 +363,21 @@
      The matters the practice actually acts on. These drive the
      "Case types" panel on the services page. */
   var CASE_TYPES = [
-    { name: 'Drug Offences', blurb: 'Trafficking, conspiracy and possession, and the defences that apply at each stage.', count: 64 },
-    { name: 'Airport & Border Cases', blurb: 'Interceptions at airports and ports of entry, and the searches that precede them.', count: 41 },
+    { name: 'Criminal Defence', blurb: 'Arrest, charge, trial, sentencing and appeal — the core of the practice.', count: 96 },
+    { name: 'Drug & Contraband Offences', blurb: 'Trafficking, possession and the defences that apply at each stage.', count: 64 },
     { name: 'Search and Seizure', blurb: 'Whether the search was lawful, and what follows for the case if it was not.', count: 57 },
     { name: 'White-Collar & Fraud', blurb: 'Fraud, embezzlement and regulatory charges brought against individuals.', count: 39 },
-    { name: 'Weapons & Violent Offences', blurb: 'Charges involving firearms and violence, and the mitigation that follows.', count: 33 },
-    { name: 'Homicide & Manslaughter', blurb: 'The most serious allegations, and the preparation they require.', count: 18 },
-    { name: 'Sexual Offences', blurb: 'Representations where consent, evidence and cross-examination are decisive.', count: 26 },
-    { name: 'Cybercrime & Online Fraud', blurb: 'Computer misuse, online fraud, and the evidence held in servers.', count: 31 },
-    { name: 'Domestic Violence & Family', blurb: 'Protective orders, residency and matters involving children.', count: 44 },
-    { name: 'Driving Offences', blurb: 'Driving without a licence, dangerous driving and drink-driving defences.', count: 52 },
-    { name: 'Money Laundering & Proceeds of Crime', blurb: 'The financial layer of a case, and the confiscation proceedings that follow.', count: 22 },
-    { name: 'Extradition & Transfer', blurb: 'Requests to surrender a person, and the defences to them.', count: 17 },
-    { name: 'Public Law & Inquests', blurb: 'Article 2 investigations and public-interest proceedings.', count: 14 },
-    { name: 'Sentencing & Appeals', blurb: 'Mitigation at sentencing, and appeals after a conviction.', count: 47 },
-    { name: 'Breach of Bail & Recall', blurb: 'The consequences of a missed hearing, and the way back.', count: 29 }
+    { name: 'Violence & Homicide', blurb: 'The most serious allegations, and the preparation they require.', count: 51 },
+    { name: 'Domestic Violence & Protection', blurb: 'Protective orders, stalking, and matters involving children.', count: 44 },
+    { name: 'Civil Litigation', blurb: 'Contract, property and commercial disputes, from demand through trial.', count: 87 },
+    { name: 'Employment Disputes', blurb: 'Dismissal, discrimination, restraint of trade and workplace claims.', count: 46 },
+    { name: 'Immigration', blurb: 'Visas, residency, citizenship and deportation defence.', count: 37 },
+    { name: 'Business & Corporate', blurb: 'Formation, governance, shareholder arrangements and day-to-day advice.', count: 94 },
+    { name: 'Contract & Commercial', blurb: 'Drafting, negotiation, variation and enforcement of agreements.', count: 63 },
+    { name: 'Real Estate & Property', blurb: 'Purchase, sale, lease, development and finance.', count: 18 },
+    { name: 'Family Law & Estate Planning', blurb: 'Separation, children, wills, trusts and probate.', count: 45 },
+    { name: 'Tax & Regulatory', blurb: 'Structuring, compliance, transactions and disputes.', count: 44 },
+    { name: 'Extradition & Cross-Border', blurb: 'Requests to surrender a person, and the defences to them.', count: 17 }
   ];
   var PRACTICES = [
     { name: 'Corporate and Business Law', blurb: 'Formation, governance, shareholder arrangements and day-to-day business advice.', count: 94 },
